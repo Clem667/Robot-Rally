@@ -20,7 +20,7 @@ public class Map {
 		//test1
 		//vous voyez ????
 		System.out.println("ca marche ?");
-	}
+	}//biloute pq sa marche paz
 
 		//wsh encore
 	
