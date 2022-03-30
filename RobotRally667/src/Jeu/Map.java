@@ -1,7 +1,7 @@
 package Jeu;
 
 public class Map {
-	private static final int tailleLigne = 10;//pas besoin de modifier à chaque fois (coté pratique)
+	private static final int tailleLigne = 10;//pas besoin de modifier ï¿½ chaque fois (cotï¿½ pratique)
 	private static final int tailleColonne = 10;
 	private static String[][] tab = new String[tailleLigne][tailleColonne];
 	private String nomMap;
@@ -13,12 +13,12 @@ public class Map {
 			SetNomMap(niveau);
 		}
 		else
-			System.err.println("Le niveau de doit être compris entre 0 et 9");
+			System.err.println("doit être compris entre 0 et 9");
 			
-		
+		//salut c'est moi
 	}
 	
-	private void SetNomMap(int niveau) {// privée !
+	private void SetNomMap(int niveau) {// privï¿½e !
 		this.nomMap = "Map de niveau " + niveau;
 	}
 	
@@ -28,21 +28,21 @@ public class Map {
 		System.out.println("Bienvenue sur la " + nomMap);
 		for(int i = 0; i< tailleLigne; i++) {
             for(int j = 0; j < tailleColonne; j++) {
-                tab[i][j]="# "; //création de cases normales (vides)
+                tab[i][j]="# "; //crï¿½ation de cases normales (vides)
             }
         }
-        for(int i = 0; i < niveau; i++) {// pour l'instant le niveau de la map se base sur le nombre de piège
-            for(int j = 0; j < 3; j++) {// piége à partir de la ligne 2
+        for(int i = 0; i < niveau; i++) {// pour l'instant le niveau de la map se base sur le nombre de piï¿½ge
+            for(int j = 0; j < 3; j++) {// piï¿½ge ï¿½ partir de la ligne 2
             	int a = 2 + i;
             	int b = (int) (Math.random()*(10));
                 if(this.getMap()[a][b].equals("# ")) {
-                	tab[a][b]="! "; // pièges
+                	tab[a][b]="! "; // piï¿½ges
                  }
             }
         }
         
         for(int i = 0; i < 2; i++) {
-            for(int j = 0; j < 2; j++) { // vie à partir de 3 ou 4
+            for(int j = 0; j < 2; j++) { // vie ï¿½ partir de 3 ou 4
             	int a = 3 + i*3;
             	int b = (int) (Math.random()*(10));
                 if(this.getMap()[a][b].equals("# ")) {
@@ -52,9 +52,9 @@ public class Map {
         }
         
         for(int i = 0; i<=2; i++) {
-        	int a = 3+i*3; // Les drapeaux doivent être placés à la ligne 3 minimum
+        	int a = 3+i*3; // Les drapeaux doivent ï¿½tre placï¿½s ï¿½ la ligne 3 minimum
         	int b = (int) (Math.random()*(10));
-        	if(this.getMap()[a][b] != "# ") { // ne doit pas remplacer des cases spéciales
+        	if(this.getMap()[a][b] != "# ") { // ne doit pas remplacer des cases spï¿½ciales
         		i = i - 1;
         	}
         	else
