@@ -5,11 +5,21 @@ public class Map {
 	private static final int tailleColonne = 10;
 	private static String[][] tab = new String[tailleLigne][tailleColonne];
 	private String nomMap;
+	private int niveau;
 	
+	private void SetNiveau(int niveau) {
+		if(niveau <= 9 && niveau > 0) {
+			this.niveau = niveau;
+			SetNomMap(niveau);
+		}
+			
+		
+	}
 	
 	private void SetNomMap(int niveau) {// privée !
 		this.nomMap = "Map de niveau " + niveau;
 	}
+	
 	
 	public Map(int niveau) {
 		SetNomMap(niveau);
