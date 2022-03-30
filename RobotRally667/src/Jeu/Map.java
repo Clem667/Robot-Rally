@@ -18,6 +18,7 @@ public class Map {
 		//salut c'est moi
 		//wsh
 		//test1
+		System.out.println("ca marche ?");
 	}
 	
 	private void SetNomMap(int niveau) {// privee !
