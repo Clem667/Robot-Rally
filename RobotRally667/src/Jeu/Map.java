@@ -13,11 +13,12 @@ public class Map {
 			SetNomMap(niveau);
 		}
 		else
-			System.err.println("doit être compris entre 0 et 9");
+			System.err.println("doit ï¿½tre compris entre 0 et 9");
 			
 		//salut c'est moi
 		//wsh
 		//test1
+		//vous voyez ?
 		System.out.println("ca marche ?");
 	}
 
