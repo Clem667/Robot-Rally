@@ -17,6 +17,7 @@ public class Map {
 			
 		//salut c'est moi
 		//wsh
+		//test1
 	}
 	
 	private void SetNomMap(int niveau) {// privee !
