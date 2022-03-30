@@ -20,6 +20,8 @@ public class Map {
 		//test1
 		System.out.println("ca marche ?");
 	}
+
+		//wsh encore
 	
 	private void SetNomMap(int niveau) {// privee !
 		this.nomMap = "Map de niveau " + niveau;
