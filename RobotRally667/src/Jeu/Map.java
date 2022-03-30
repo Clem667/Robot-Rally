@@ -1,0 +1,71 @@
+package Jeu;
+
+public class Map {
+	private static final int tailleLigne = 10;//pas besoin de modifier à chaque fois (coté pratique)
+	private static final int tailleColonne = 10;
+	private static String[][] tab = new String[tailleLigne][tailleColonne];
+	private String nomMap;
+	
+	
+	private void SetNomMap(int niveau) {// privée !
+		this.nomMap = "Map de niveau " + niveau;
+	}
+	
+	public Map(int niveau) {
+		SetNomMap(niveau);
+		System.out.println("Bienvenue sur la " + nomMap);
+		for(int i = 0; i< tailleLigne; i++) {
+            for(int j = 0; j < tailleColonne; j++) {
+                tab[i][j]="# "; //création de cases normales (vides)
+            }
+        }
+        for(int i = 0; i < niveau; i++) {// pour l'instant le niveau de la map se base sur le nombre de piège
+            for(int j = 0; j < 3; j++) {// piége à partir de la ligne 2
+            	int a = 2 + i;
+            	int b = (int) (Math.random()*(10));
+                if(this.getMap()[a][b].equals("# ")) {
+                	tab[a][b]="! "; // pièges
+                 }
+            }
+        }
+        
+        for(int i = 0; i < 2; i++) {
+            for(int j = 0; j < 2; j++) { // vie à partir de 3 ou 4
+            	int a = 3 + i*3;
+            	int b = (int) (Math.random()*(10));
+                if(this.getMap()[a][b].equals("# ")) {
+                	tab[a][b]="V "; //points de vie
+                }
+            }
+        }
+        
+        for(int i = 0; i<=2; i++) {
+        	int a = 3+i*3; // Les drapeaux doivent être placés à la ligne 3 minimum
+        	int b = (int) (Math.random()*(10));
+        	if(this.getMap()[a][b] != "# ") { // ne doit pas remplacer des cases spéciales
+        		i = i - 1;
+        	}
+        	else
+        		tab[a][b] = (i+1) + " ";
+        	
+        }
+ 
+    }
+
+    public String[][] getMap() {
+        return tab;
+    }
+
+    public String toString() {
+        String r = "";
+        for (int i = 0; i < tailleLigne; i++) {
+            for(int j = 0; j < tailleColonne; j++) {
+                r += tab[i][j];
+            }
+            r+="\n";
+        }
+        return r;
+    }
+}
+	
+
