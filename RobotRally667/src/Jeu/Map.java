@@ -8,12 +8,12 @@ public class Map {
 	private int niveau;
 	
 	private void SetNiveau(int niveau) {
-		if(niveau <= 9 && niveau > 0) {
+		if(niveau <= 4 && niveau > 0) {
 			this.niveau = niveau;
 			SetNomMap(niveau);
 		}
 		else
-			System.err.println("doit etre compris entre 0 et 9");
+			System.err.println("doit etre compris entre 0 et 3");
 	}
 
 	private void SetNomMap(int niveau) {// privee !

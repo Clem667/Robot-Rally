@@ -17,6 +17,7 @@ public class Player {
 	private int pointDegat; //??
 	private int j;
 	private int i;
+	private String directionPiont = "N"; //nord, sud, est, ouest
 	
 	public String emplacement() {
 		return numero + " est en : " + i + " " + j;
@@ -34,7 +35,7 @@ public class Player {
 			return true;
 	}
 	
-	private boolean priseDrapeau() { // sert pour la méthode gainDrapeau donc private car nous en aurons pas besoin dans les autres classes
+	private boolean priseDrapeau() { // sert pour la mï¿½thode gainDrapeau donc private car nous en aurons pas besoin dans les autres classes
 		if(drapeau == 3) {
 			return true;
 		}
@@ -48,7 +49,7 @@ public class Player {
 	
 	public void gainDrapeau() {
 		if(priseDrapeau())
-			System.out.println(name + " s'est emparé des trois drapeaux !"); 
+			System.out.println(name + " s'est emparï¿½ des trois drapeaux !"); 
 		else
 			drapeau += 1;
 	}
@@ -90,8 +91,32 @@ public class Player {
 			main.add(carte);
 	}
 	
-	private Carte get(int i) {
+	private Carte get(int i) { 
 		return main.get(i);
+	}
+
+	public String getDirectionPiont() {
+		return directionPiont;
+	}
+
+	public void setDirectionPiont(String directionPiont) {
+		this.directionPiont = directionPiont;
+	}
+
+	public boolean isHorsTension() { //getter et setter hors tension
+		return horsTension;
+	}
+
+	public void setHorsTension(boolean horsTension) {
+		this.horsTension = horsTension;
+	}
+
+	public int getPointDegat() { //getter et setteur hors tension
+		return pointDegat;
+	}
+
+	public void setPointDegat(int pointDegat) {
+		this.pointDegat = pointDegat;
 	}
 	
 	//public void utilisation(main.get(i)) {
