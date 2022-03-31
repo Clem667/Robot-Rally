@@ -3,7 +3,9 @@ package Jeu;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Test {
 	
@@ -21,7 +23,10 @@ public class Test {
 	}
 	
 	public static void main(String[] args) {
-		Map map1 = new Map(8);
+		Scanner sc =new Scanner(System.in); //demande de choisir un niv de difficultee
+	    System.out.print("Veuillez choisir un niveau de difficultee entre 1 et 9 :");
+	    int i = sc.nextInt();
+		Map map1 = new Map(i);
 		System.out.println(map1);
 	}
 }
