@@ -39,7 +39,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		Scanner sc =new Scanner(System.in); //demande de choisir un niv de difficultee
-	    System.out.print("Veuillez choisir un niveau de difficultee entre 1 et 9 :");
+	    System.out.print("Veuillez choisir un niveau de difficultee entre 1 et 8 :");
 	    int i = sc.nextInt();
 		Map map1 = new Map(i);
 		System.out.println(map1);
