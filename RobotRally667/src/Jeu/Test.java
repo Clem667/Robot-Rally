@@ -13,11 +13,26 @@ public class Test {
 		String texte;
 		while((texte = inputStream.readLine()) != null) {
 			String carte[] = texte.split(" ");
-			//if(carte[0] == "avance")
-				//Avancer a = new Avancer(((int)))
+			int i = Integer.parseInt(carte[0]);
+			if(carte[1].equals("avance")) { 
+				int avance = Integer.parseInt(carte[2]);
+				Avancer av1 = new Avancer(i, avance);
+			}
+			else if(carte[1].equals("droite")) {
+				Direction d = new Direction(i, "droite");
+			}
+			else if(carte[1].equals("gauche")) {
+				Direction d = new Direction(i, "gauche");
+			}
+			else if(carte[1].equals("demi-tour")){
+				Direction d = new Direction(i, "demi-tour");
+			}
+			else
+				System.err.println("carte incorrecte dans carte.txt");
 			
 		}
 		return null;
+		
 	}
 	
 	public static void main(String[] args) {
