@@ -13,7 +13,7 @@ public class Carte {
 	}
 
 	private int points;
-	private static List<Carte> pioche = new ArrayList<Carte>();
+	public static ArrayList<Carte> pioche = new ArrayList<Carte>();
 	private static List<Carte> defausse = new ArrayList<Carte>();
 	
 	public int getPoints() {

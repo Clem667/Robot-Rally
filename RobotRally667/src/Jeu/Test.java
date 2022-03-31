@@ -1,9 +1,9 @@
 package Jeu;
 
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,26 +19,25 @@ public class Test {
 			if(carte[1].equals("avance")) { 
 				int avance = Integer.parseInt(carte[2]);
 				Avancer av1 = new Avancer(i, avance);
+				packet.add(av1);
 			}
-			else if(carte[1].equals("droite")) {
-				Direction d = new Direction(i, "droite");
+			else {
+				Direction d = new Direction(i, carte[1]);
+				packet.add(d);
 			}
-			else if(carte[1].equals("gauche")) {
-				Direction d = new Direction(i, "gauche");
-			}
-			else if(carte[1].equals("demi-tour")){
-				Direction d = new Direction(i, "demi-tour");
-			}
-			else
-				System.err.println("carte incorrecte dans carte.txt");
-			
 		}
-		return null; // faut changer
+		
+		inputStream.close();
+		return packet; // faut changer
+		
 		
 	}
 	
-	public static void main(String[] args) {
-		Scanner sc =new Scanner(System.in); //demande de choisir un niv de difficultee entre Ã  et 8
+	
+	
+	public static void main(String[] args) throws IOException {
+		Carte.pioche = lecturecarte("carte.txt");
+		Scanner sc =new Scanner(System.in); //demande de choisir un niv de difficultee entre a  et 8
 	    System.out.print("Veuillez choisir un niveau de difficultee entre 1 et 8 :");
 	    int i = sc.nextInt();
 		Map map1 = new Map(i);
