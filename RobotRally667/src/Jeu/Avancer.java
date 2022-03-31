@@ -2,7 +2,7 @@ package Jeu;
 
 public class Avancer extends Carte {
 	
-	private int avance;
+	private int avance;//si cette variable est negative, elle correspond a une carte reculer
 	
 	public Avancer (int points, int avance) {
 		super(points);

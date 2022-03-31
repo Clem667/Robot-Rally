@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Player extends Thread{
+public class Player {
 	public Player() {
 	}
 	
@@ -13,7 +13,7 @@ public class Player extends Thread{
 	private int numero;
 	private int PV = 3;
 	private int drapeau = 0;
-	private boolean horsTension = false;
+	private boolean horsTension = false; //??
 	private int pointDegat; //??
 	private int j;
 	private int i;
@@ -21,8 +21,6 @@ public class Player extends Thread{
 	public String emplacement() {
 		return numero + " est en : " + i + " " + j;
 	}
-	
-	
 	
 	public int getPV() {
 		return PV;
@@ -45,7 +43,7 @@ public class Player extends Thread{
 	}
 	
 	public boolean controleJoueur() {//savoir si le joueur est en vie ou a gagner
-		return enVie() && priseDrapeau() && leftCard();
+		return enVie() && priseDrapeau() && JeuVide();
 	}
 	
 	public void gainDrapeau() {
@@ -69,7 +67,7 @@ public class Player extends Thread{
 		int i = 0;
 		while(mainJeu.hasNext()) {
 			i++;
-			cartes += i + " : " + mainJeu.toString();
+			cartes += i + " : " + mainJeu.toString() + "\n";
 		}
 		return cartes;
 	}
@@ -78,7 +76,7 @@ public class Player extends Thread{
 		return main.size();
 	}
 	
-	private boolean leftCard() {
+	private boolean JeuVide() {
 		if(carteMain()<=0)
 			return false;
 		else
@@ -87,14 +85,14 @@ public class Player extends Thread{
 	
 	public void ajoutMain(Carte carte) {
 		if(carteMain()>=9 || carte == null)
-			System.err.println("Nombre de cartes déplacées");
+			System.err.println("Nombre de cartes maximums atteintes");
 		else
 			main.add(carte);
 	}
 	
-	//private Carte get(int i) {
-	//	return 
-	//}
+	private Carte get(int i) {
+		return main.get(i);
+	}
 	
 	//public void utilisation(main.get(i)) {
 		

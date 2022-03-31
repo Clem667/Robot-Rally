@@ -13,17 +13,10 @@ public class Map {
 			SetNomMap(niveau);
 		}
 		else
-			System.err.println("doit �tre compris entre 0 et 9");
-			
-		//salut c'est moi
-		//wsh
-		//test1
-		//vous voyez ????
-		System.out.println("ca marche ?");
+			System.err.println("doit etre compris entre 0 et 9");
 	}
 
-		//wsh encore
-	
+		
 	private void SetNomMap(int niveau) {// privee !
 		this.nomMap = "Map de niveau " + niveau;
 	}
@@ -32,7 +25,7 @@ public class Map {
 	public Map(int niveau) {
 		SetNiveau(niveau);
 		System.out.println("Bienvenue sur la " + nomMap);
-		for(int i = 0; i< tailleLigne; i++) {
+		for(int i = 0; i < tailleLigne; i++) {
             for(int j = 0; j < tailleColonne; j++) {
                 tab[i][j]="# "; //creation de cases normales (vides)
             }
