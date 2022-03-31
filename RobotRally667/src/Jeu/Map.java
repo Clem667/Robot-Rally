@@ -16,7 +16,6 @@ public class Map {
 			System.err.println("doit etre compris entre 0 et 9");
 	}
 
-		
 	private void SetNomMap(int niveau) {// privee !
 		this.nomMap = "Map de niveau " + niveau;
 	}
