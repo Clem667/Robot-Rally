@@ -11,43 +11,58 @@ public class Carte {
 		else
 			this.points = points;
 	}
+	
 
 	private int points;
-	public static ArrayList<Carte> pioche = new ArrayList<Carte>();
+	private static ArrayList<Carte> pioche = new ArrayList<Carte>();
 	private static List<Carte> defausse = new ArrayList<Carte>();
+	
+	public static void setPioche(ArrayList<Carte> jeuDeCartes) {
+		pioche = jeuDeCartes;
+	}
+	
+	public static ArrayList<Carte> getPioche(){
+		return pioche;
+	}
 	
 	public int getPoints() {
 		return points;
 	}
 	
-	private int taillePioche(List<Carte> Pioche) {
+	private static int taillePioche(List<Carte> Pioche) {
 		return Pioche.size();
 	}
 	
-	private Carte get(int i) {
+	private static Carte get(int i) {
 		return get(i);
 	}
 	
-	private void remove(List<Carte> Pioche,int i) {
+	private static void remove(List<Carte> Pioche,int i) {
 		Pioche.remove(i);
 	}
 	
-	private void removeAll(List<Carte> Pioche) {
+	private static void removeAll(List<Carte> Pioche) {
 		Pioche.removeAll(Pioche);
 	}
 	
-	private void add(List<Carte> Pioche, int i) {
+	private static void add(List<Carte> Pioche, int i) {
 		Pioche.add(get(i));
 	}
 	
-	public void melange() {
-		List<Carte> pioche2 = pioche;
+	public static void melange() {
+		ArrayList<Carte> pioche2 = pioche;
+		System.out.println(pioche2.size());
 		removeAll(pioche);
-		for(int i = 0; i < taillePioche(pioche2); i++) {
+		System.out.println("passage melange()");
+		int iteration = pioche2.size();
+		System.out.println(iteration);
+		for(int i = 0; i < iteration; i++) {
 			int a = ((int) Math.random())*(taillePioche(pioche2)-1);
 			add(pioche, a);
+			System.out.println("passage melange()");
 			remove(pioche2, a);
 		}
+		
 	}
 
 	

@@ -2,6 +2,7 @@ package Jeu;
 
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,11 +10,11 @@ import java.util.Scanner;
 
 public class Test {
 	
-	public static ArrayList<Carte> lecturecarte(String fichier) throws IOException{
+	public static ArrayList<Carte> lectureCarte(File fichier) throws IOException{
 		ArrayList<Carte> packet = new ArrayList<Carte>();
-		BufferedReader inputStream = new BufferedReader(new FileReader(fichier));
+		BufferedReader is = new BufferedReader(new FileReader(fichier));
 		String texte;
-		while((texte = inputStream.readLine()) != null) {
+		while((texte = is.readLine()) != null) {
 			String carte[] = texte.split(" ");
 			int i = Integer.parseInt(carte[0]);
 			if(carte[1].equals("avance")) { 
@@ -27,7 +28,7 @@ public class Test {
 			}
 		}
 		
-		inputStream.close();
+		is.close();
 		return packet; // faut changer
 		
 		
@@ -36,7 +37,11 @@ public class Test {
 	
 	
 	public static void main(String[] args) throws IOException {
-		Carte.pioche = lecturecarte("carte2.txt");
+		File fichier = new File("C:\\Users\\cleme\\git\\Robot-Rally\\RobotRally667\\src\\Jeu\\carte2.txt");
+		Carte.setPioche(lectureCarte(fichier));
+		System.out.println(Carte.getPioche());
+		Carte.melange();
+		System.out.println(Carte.getPioche());
 		Scanner sc =new Scanner(System.in); //demande de choisir un niv de difficultee entre a et 8
 	    System.out.print("Veuillez choisir un niveau de difficultee entre 1 et 8 :");
 	    int i = sc.nextInt();

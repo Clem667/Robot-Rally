@@ -17,7 +17,7 @@ public class Player {
 	private int pointDegat; //??
 	private int j;
 	private int i;
-	private String directionPiont = "N"; //nord, sud, est, ouest
+	private String directionPiont = "N"; //nord, sud, est, ouest OK
 	
 	public String emplacement() {
 		return numero + " est en : " + i + " " + j;
@@ -35,7 +35,7 @@ public class Player {
 			return true;
 	}
 	
-	private boolean priseDrapeau() { // sert pour la m�thode gainDrapeau donc private car nous en aurons pas besoin dans les autres classes
+	private boolean priseDrapeau() { // sert pour la methode gainDrapeau donc private car nous en aurons pas besoin dans les autres classes
 		if(drapeau == 3) {
 			return true;
 		}
@@ -103,7 +103,7 @@ public class Player {
 		this.directionPiont = directionPiont;
 	}
 
-	public boolean isHorsTension() { //getter et setter hors tension
+	public boolean isHorsTension() { //getter et setter hors tension pas besoin
 		return horsTension;
 	}
 
@@ -111,7 +111,7 @@ public class Player {
 		this.horsTension = horsTension;
 	}
 
-	public int getPointDegat() { //getter et setteur hors tension
+	public int getPointDegat() { //getter et setteur hors tension mais pas besoin pour l'instant
 		return pointDegat;
 	}
 

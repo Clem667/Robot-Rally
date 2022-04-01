@@ -13,4 +13,12 @@ public class Direction extends Carte {
 			System.err.println("Erreur dans class Direction");
 	}
 	
+	public String getDirection() {
+		return direction;
+	}
+	
+	public String toString() {
+		return "direction vers " + direction + " " + getPoints() + " points\n";
+	}
+	
 }
