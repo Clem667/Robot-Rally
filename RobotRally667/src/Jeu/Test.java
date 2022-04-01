@@ -33,6 +33,10 @@ public class Test {
 		
 	}
 	
+	public boolean controle(ArrayList<Player> joueurs) {
+		 
+	}
+	
 	
 	
 	public static void main(String[] args) throws IOException {
@@ -46,22 +50,21 @@ public class Test {
 		System.out.println(map1);
 		sc.close();
 		
+		Player player1 = new Player("joueur1");
+		Player player2 = new Player("joueur2");
 		
-		Player player1 = new Player("player1");
-		Direction d1 = new Direction(530, "demi-tour");
-		Avancer a1 = new Avancer(460, 3);
-		Avancer a2 = new Avancer(500, 3);
-		player1.add(a1);
-		player1.add(d1);
+		while(true) {
+			while(player1.carteMain() != 9 && player2.carteMain() != 9) {
+				Carte.distribution(player1.getMain());
+				Carte.distribution(player2.getMain());
+				
+				System.out.println(player1.getMain());
+				System.out.println(player2.getMain());
+			}
+		}
+			
 		
 		
-		player1.emplacement();
-		player1.utilisation(a1);
-		player1.emplacement();
-		player1.utilisation(d1);
-		player1.emplacement();
-		player1.utilisation(a2);
-		player1.emplacement();
 		
 	}
 }

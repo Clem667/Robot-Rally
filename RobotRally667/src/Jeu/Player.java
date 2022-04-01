@@ -5,21 +5,35 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Player {
-	public Player(String name) {
-		this.name = name;
+	public Player(String nom) {
+		this.nom = nom;
 	}
 	
-	private List<Carte> main = new ArrayList<Carte>();
-	private String name;
+	private ArrayList<Carte> main = new ArrayList<Carte>();
+	private String nom;
 	private int PV = 3;
 	private int drapeau = 0;
 	private boolean horsTension = false; //??
 	private int pointDegat; //??
-	public int j = 4;
-	public int i = 8;
+	private int j = 4;
+	private int i = 0;
 	private int g = 0;// position dans la liste des orientations et qui déterminera directionPiont
 	private final String [] directionPiont = {"S","O","N","E"};
+	
+	public ArrayList<Carte> getMain(){
+		return main;
+	}
 
+	
+	public int getI() {
+		return i;
+	}
+	
+	public int getJ() {
+		return j;
+	}
+	
+	
 	private void SetI(int a) {
 		if((i + a) > 10)
 			i = 10;
@@ -39,14 +53,14 @@ public class Player {
 	}
 	
 	public void emplacement() {
-		System.out.println(name + " est en : " + i + " " + j + " " + directionPiont[g]);
+		System.out.println(nom + " est en : " + i + " " + j + " " + directionPiont[g]);
 	}
 	
 	public void add(Carte c) {
 		if(c != null && main.size() < 9)
 			main.add(c);
 		else
-			System.err.println(name + "ne peut pas ajouter : " + c.toString());
+			System.err.println(nom + "ne peut pas ajouter : " + c.toString());
 	}
 	
 	public void utilisation(Direction d) {
@@ -113,7 +127,7 @@ public class Player {
 	
 	public void gainDrapeau() {
 		if(priseDrapeau())
-			System.out.println(name + " s'est emparï¿½ des trois drapeaux !"); 
+			System.out.println(nom + " s'est emparï¿½ des trois drapeaux !"); 
 		else
 			drapeau += 1;
 	}
@@ -122,7 +136,7 @@ public class Player {
 		if(PV <= 0)// exception ?
 			PV = PV - 1;
 		if(!enVie()) {
-			System.out.println(name + " n'a plus de point de vie");
+			System.out.println(nom + " n'a plus de point de vie");
 		}
 	}
 	
@@ -137,7 +151,7 @@ public class Player {
 		return cartes;
 	}
 	
-	private int carteMain() {
+	public int carteMain() {
 		return main.size();
 	}
 	

@@ -45,6 +45,14 @@ public class Carte {
 		}
 		
 	}
+	
+	public static void distribution(ArrayList<Carte> main) {
+		if(main.size() < 9) {
+			int i = ((int) (Math.random())*(pioche.size()));
+			main.add(pioche.get(i));
+			pioche.remove(i);
+		}
+	}
 
 	
 }
