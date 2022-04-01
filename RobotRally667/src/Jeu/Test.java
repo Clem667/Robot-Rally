@@ -1,6 +1,5 @@
 package Jeu;
 
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -39,14 +38,13 @@ public class Test {
 	public static void main(String[] args) throws IOException {
 		File fichier = new File("C:\\Users\\cleme\\git\\Robot-Rally\\RobotRally667\\src\\Jeu\\carte2.txt");
 		Carte.setPioche(lectureCarte(fichier));
-		System.out.println(Carte.getPioche());
 		Carte.melange();
-		System.out.println(Carte.getPioche());
 		Scanner sc =new Scanner(System.in); //demande de choisir un niv de difficultee entre a et 8
 	    System.out.print("Veuillez choisir un niveau de difficultee entre 1 et 8 :");
 	    int i = sc.nextInt();
 		Map map1 = new Map(i);
 		System.out.println(map1);
 		sc.close();
+		
 	}
 }

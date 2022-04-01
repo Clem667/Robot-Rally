@@ -8,7 +8,7 @@ public class Map {
 	private int niveau;
 	
 	private void SetNiveau(int niveau) {
-		if(niveau <= 4 && niveau > 0) {
+		if(niveau <= 8 && niveau > 1) {
 			this.niveau = niveau;
 			SetNomMap(niveau);
 		}

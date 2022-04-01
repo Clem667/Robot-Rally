@@ -5,7 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Player {
-	public Player() {
+	public Player(String name) {
+		this.name = name;
 	}
 	
 	private List<Carte> main = new ArrayList<Carte>();
@@ -17,7 +18,7 @@ public class Player {
 	private int pointDegat; //??
 	private int j;
 	private int i;
-	private String directionPiont = "N"; //nord, sud, est, ouest OK
+	private String directionPiont = "S"; //nord, sud, est, ouest OK
 	
 	public String emplacement() {
 		return numero + " est en : " + i + " " + j;
