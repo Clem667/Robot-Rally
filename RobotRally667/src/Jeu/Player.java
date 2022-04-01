@@ -2,7 +2,6 @@ package Jeu;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 public class Player {
 	public Player(String nom) {
@@ -167,10 +166,6 @@ public class Player {
 			System.err.println("Nombre de cartes maximums atteintes");
 		else
 			main.add(carte);
-	}
-	
-	private Carte get(int i) { 
-		return main.get(i);
 	}
 
 

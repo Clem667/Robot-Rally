@@ -33,10 +33,6 @@ public class Test {
 		
 	}
 	
-	public boolean controle(ArrayList<Player> joueurs) {
-		 
-	}
-	
 	
 	
 	public static void main(String[] args) throws IOException {
