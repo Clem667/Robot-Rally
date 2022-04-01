@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carte {
+	private int points;
+	private static ArrayList<Carte> pioche = new ArrayList<Carte>();
+	private static List<Carte> defausse = new ArrayList<Carte>();
+
 	public Carte(int points) {
 		if(points < 0) {
 			System.err.println("pas de carte négative");
@@ -11,11 +15,6 @@ public class Carte {
 		else
 			this.points = points;
 	}
-	
-
-	private int points;
-	private static ArrayList<Carte> pioche = new ArrayList<Carte>();
-	private static List<Carte> defausse = new ArrayList<Carte>();
 	
 	public static void setPioche(ArrayList<Carte> jeuDeCartes) {
 		pioche = jeuDeCartes;

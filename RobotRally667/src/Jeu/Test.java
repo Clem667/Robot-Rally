@@ -39,12 +39,29 @@ public class Test {
 		File fichier = new File("C:\\Users\\cleme\\git\\Robot-Rally\\RobotRally667\\src\\Jeu\\carte2.txt");
 		Carte.setPioche(lectureCarte(fichier));
 		Carte.melange();
-		Scanner sc =new Scanner(System.in); //demande de choisir un niv de difficultee entre a et 8
+		Scanner sc = new Scanner(System.in); //demande de choisir un niv de difficultee entre a et 8
 	    System.out.print("Veuillez choisir un niveau de difficultee entre 1 et 8 :");
 	    int i = sc.nextInt();
 		Map map1 = new Map(i);
 		System.out.println(map1);
 		sc.close();
+		
+		
+		Player player1 = new Player("player1");
+		Direction d1 = new Direction(530, "demi-tour");
+		Avancer a1 = new Avancer(460, 3);
+		Avancer a2 = new Avancer(500, 3);
+		player1.add(a1);
+		player1.add(d1);
+		
+		
+		player1.emplacement();
+		player1.utilisation(a1);
+		player1.emplacement();
+		player1.utilisation(d1);
+		player1.emplacement();
+		player1.utilisation(a2);
+		player1.emplacement();
 		
 	}
 }

@@ -11,18 +11,81 @@ public class Player {
 	
 	private List<Carte> main = new ArrayList<Carte>();
 	private String name;
-	private int numero;
 	private int PV = 3;
 	private int drapeau = 0;
 	private boolean horsTension = false; //??
 	private int pointDegat; //??
-	private int j;
-	private int i;
-	private String directionPiont = "S"; //nord, sud, est, ouest OK
-	
-	public String emplacement() {
-		return numero + " est en : " + i + " " + j;
+	public int j = 4;
+	public int i = 8;
+	private int g = 0;// position dans la liste des orientations et qui déterminera directionPiont
+	private final String [] directionPiont = {"S","O","N","E"};
+
+	private void SetI(int a) {
+		if((i + a) > 10)
+			i = 10;
+		else if((i + a) < 0)
+			i = 0;
+		else
+			i = i + a;
 	}
+	
+	private void SetJ(int a) {
+		if((j + a) > 10)
+			j = 10;
+		else if((j + a) < 0)
+			j = 0;
+		else
+			j = j + a;
+	}
+	
+	public void emplacement() {
+		System.out.println(name + " est en : " + i + " " + j + " " + directionPiont[g]);
+	}
+	
+	public void add(Carte c) {
+		if(c != null && main.size() < 9)
+			main.add(c);
+		else
+			System.err.println(name + "ne peut pas ajouter : " + c.toString());
+	}
+	
+	public void utilisation(Direction d) {
+		if(d.getDirection() == "droite")
+			if(g == 3)
+				g = 0;
+			else
+				g += 1;
+		else if(d.getDirection() == "gauche")
+			if(g == 0) {
+				g = 3;
+			}
+			else
+				g -= 1;
+		else
+			if(g < 2)
+				g += 2;
+			else if(g == 2)
+				g = 0;
+			else
+				g = 1;
+	}
+	
+	public void utilisation(Avancer a) {
+		if(directionPiont[g] == "S")
+			SetI(a.getAvance());
+		else if(directionPiont[g] == "N")
+			SetI(-a.getAvance());
+		else if(directionPiont[g] == "E") {
+			SetJ(a.getAvance());
+		}
+		else
+			SetJ(-a.getAvance());
+	}
+	
+	public String getDirectionPiont() {
+		return directionPiont[g];
+	}
+	
 	
 	public int getPV() {
 		return PV;
@@ -96,13 +159,6 @@ public class Player {
 		return main.get(i);
 	}
 
-	public String getDirectionPiont() {
-		return directionPiont;
-	}
-
-	public void setDirectionPiont(String directionPiont) {
-		this.directionPiont = directionPiont;
-	}
 
 	public boolean isHorsTension() { //getter et setter hors tension pas besoin
 		return horsTension;
@@ -119,10 +175,6 @@ public class Player {
 	public void setPointDegat(int pointDegat) {
 		this.pointDegat = pointDegat;
 	}
-	
-	//public void utilisation(main.get(i)) {
-		
-	//}
 	
 	
 }
