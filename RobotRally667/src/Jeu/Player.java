@@ -19,10 +19,34 @@ public class Player {
 	private int g = 0;// position dans la liste des orientations et qui déterminera directionPiont
 	private final String [] directionPiont = {"S","O","N","E"};
 	
+	
+	public String getNom() {
+		return nom;
+	}
+	
 	public ArrayList<Carte> getMain(){
 		return main;
 	}
-
+	
+	public Carte getMain(int i) {
+		return main.get(i);
+	}
+	
+	public void placementJoueur() {
+		if(Map.getMap()[getI()][getJ()] == "# ")
+			Map.getMap()[getI()][getJ()] = "R ";
+		else if(Map.getMap()[getI()][getJ()] == "! ") {
+			Map.getMap()[getI()][getJ()] = "R ";
+			System.out.println(nom + " a pris un piège !");
+			Degat();
+		}
+		else if(Map.getMap()[getI()][getJ()] == "V ") {
+			Map.getMap()[getI()][getJ()] = "R ";
+			System.out.println(nom + " va prendre un point de vie");
+			Gain();
+		}
+	}
+	
 	
 	public int getI() {
 		return i;
@@ -62,7 +86,7 @@ public class Player {
 			System.err.println(nom + "ne peut pas ajouter : " + c.toString());
 	}
 	
-	public void utilisation(Direction d) {
+	public void utilisationD(Direction d) {
 		if(d.getDirection() == "droite")
 			if(g == 3)
 				g = 0;
@@ -81,9 +105,18 @@ public class Player {
 				g = 0;
 			else
 				g = 1;
+		main.remove(d);
 	}
 	
-	public void utilisation(Avancer a) {
+	
+	public void utilisation(Carte c) {
+		if(c instanceof Direction)
+			utilisationD((Direction) c);
+		else
+			utilisationA((Avancer) c);
+		Carte.defausse.add(c);
+	}
+	public void utilisationA(Avancer a) {
 		if(directionPiont[g] == "S")
 			SetI(a.getAvance());
 		else if(directionPiont[g] == "N")
@@ -93,6 +126,7 @@ public class Player {
 		}
 		else
 			SetJ(-a.getAvance());
+		main.remove(a);
 	}
 	
 	public String getDirectionPiont() {
@@ -106,6 +140,7 @@ public class Player {
 	
 	private boolean enVie() {
 		if(PV <= 0) {
+			setHorsTension(true);
 			return false;
 		}
 		else
@@ -114,19 +149,20 @@ public class Player {
 	
 	private boolean priseDrapeau() { // sert pour la methode gainDrapeau donc private car nous en aurons pas besoin dans les autres classes
 		if(drapeau == 3) {
-			return true;
+			System.out.println(nom + " a gagne la partie");
+			return false;
 		}
 		else
-			return false;
+			return true;
 	}
 	
 	public boolean controleJoueur() {//savoir si le joueur est en vie ou a gagner
-		return enVie() && priseDrapeau() && JeuVide();
+		return enVie() && priseDrapeau();
 	}
 	
 	public void gainDrapeau() {
 		if(priseDrapeau())
-			System.out.println(nom + " s'est emparï¿½ des trois drapeaux !"); 
+			System.out.println(nom + " s'est empare des trois drapeaux !"); 
 		else
 			drapeau += 1;
 	}
@@ -135,7 +171,14 @@ public class Player {
 		if(PV <= 0)// exception ?
 			PV = PV - 1;
 		if(!enVie()) {
-			System.out.println(nom + " n'a plus de point de vie");
+			System.out.println(nom + " n'a plus de points de vie");
+		}
+	}
+	
+	public void Gain() {
+		if(PV < 3) {
+			PV += 1;
+			System.out.println(nom + " a maintenant : " + getPV() + "points de vie");
 		}
 	}
 	

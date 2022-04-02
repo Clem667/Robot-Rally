@@ -6,7 +6,7 @@ import java.util.List;
 public class Carte {
 	private int points;
 	private static ArrayList<Carte> pioche = new ArrayList<Carte>();
-	private static List<Carte> defausse = new ArrayList<Carte>();
+	public static List<Carte> defausse = new ArrayList<Carte>();
 
 	public Carte(int points) {
 		if(points < 0) {
@@ -51,6 +51,7 @@ public class Carte {
 			int i = ((int) (Math.random())*(pioche.size()));
 			main.add(pioche.get(i));
 			pioche.remove(i);
+			
 		}
 	}
 

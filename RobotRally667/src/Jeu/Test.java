@@ -44,19 +44,63 @@ public class Test {
 	    int i = sc.nextInt();
 		Map map1 = new Map(i);
 		System.out.println(map1);
-		sc.close();
+
 		
 		Player player1 = new Player("joueur1");
 		Player player2 = new Player("joueur2");
 		
-		while(true) {
+		while(player1.controleJoueur() && player2.controleJoueur()) {
 			while(player1.carteMain() != 9 && player2.carteMain() != 9) {
+				
+				System.out.println(Carte.getPioche());
+				
+				
 				Carte.distribution(player1.getMain());
 				Carte.distribution(player2.getMain());
 				
+				System.out.println(Carte.getPioche());
+				
 				System.out.println(player1.getMain());
 				System.out.println(player2.getMain());
+				
+				while(player1.controleJoueur() && player2.controleJoueur()) {
+					for(int tour = 0; tour<5; tour++) {
+						player1.placementJoueur();
+						player2.placementJoueur();
+						System.out.println(map1);
+						System.out.println(player1.getNom() + " choisissez votre carte : ");
+						for(int a = 0; a < player1.getMain().size(); a++) {
+							System.out.println(a + " : " + player1.getMain().toString());
+						}
+						int choix1 = sc.nextInt();
+						System.out.println(player2.getNom() + " choisissez votre carte : ");
+						for(int a = 0; a < player2.getMain().size(); a++) {
+							System.out.println(a + " : " + player2.getMain().toString());
+						}
+						int choix2 = sc.nextInt();
+					
+						if(player1.getMain(choix1).getPoints() > player2.getMain(choix2).getPoints()) {
+							player1.utilisation(player1.getMain(choix1));
+							player1.getMain().remove(choix1);
+							player2.utilisation(player2.getMain(choix2));
+							player2.getMain().remove(choix2);
+						}
+						else
+							player2.utilisation(player2.getMain(choix2));
+							player2.getMain().remove(choix2);
+							player1.utilisation(player1.getMain(choix1));
+							player1.getMain().remove(choix1);
+
+					}
+					System.out.println("Fin du tour !");
+					
+					
+				}
+				
+				
+				
 			}
+			sc.close();
 		}
 			
 		

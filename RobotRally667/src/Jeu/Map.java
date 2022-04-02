@@ -60,9 +60,9 @@ public class Map {
         	
         }
  
-    }
+	}
 
-    public String[][] getMap() {
+    public static String[][] getMap() {
         return tab;
     }
 
