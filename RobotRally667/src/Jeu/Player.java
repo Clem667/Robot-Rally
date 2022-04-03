@@ -33,6 +33,13 @@ public class Player {
 	}
 	
 	public void placementJoueur() {
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 10; j++) {
+				if(Map.getMap()[i][j] == "R " && (i != getI() || j != getJ())) {
+					Map.getMap()[i][j] = "# ";
+				}
+			}
+		}
 		if(Map.getMap()[getI()][getJ()] == "# ")
 			Map.getMap()[getI()][getJ()] = "R ";
 		else if(Map.getMap()[getI()][getJ()] == "! ") {
@@ -42,7 +49,7 @@ public class Player {
 		}
 		else if(Map.getMap()[getI()][getJ()] == "V ") {
 			Map.getMap()[getI()][getJ()] = "R ";
-			System.out.println(nom + " va prendre un point de vie");
+			System.out.println(nom + " perd un point de vie");
 			Gain();
 		}
 	}
@@ -87,25 +94,26 @@ public class Player {
 	}
 	
 	public void utilisationD(Direction d) {
-		if(d.getDirection() == "droite")
-			if(g == 3)
+		if(d.getDirection().equals("droite")) {
+			if(g == 3) 
 				g = 0;
-			else
+			else 
 				g += 1;
-		else if(d.getDirection() == "gauche")
-			if(g == 0) {
+		}
+		else if(d.getDirection().equals("gauche")) {
+			if(g == 0) 
 				g = 3;
-			}
 			else
 				g -= 1;
-		else
+		}
+		else {
 			if(g < 2)
 				g += 2;
 			else if(g == 2)
 				g = 0;
 			else
 				g = 1;
-		main.remove(d);
+		}
 	}
 	
 	
@@ -115,18 +123,18 @@ public class Player {
 		else
 			utilisationA((Avancer) c);
 		Carte.defausse.add(c);
+		main.remove(c);
 	}
 	public void utilisationA(Avancer a) {
-		if(directionPiont[g] == "S")
+		if(directionPiont[g].equals("S"))
 			SetI(a.getAvance());
-		else if(directionPiont[g] == "N")
+		else if(directionPiont[g].equals("N"))
 			SetI(-a.getAvance());
-		else if(directionPiont[g] == "E") {
+		else if(directionPiont[g].equals("E")) {
 			SetJ(a.getAvance());
 		}
 		else
 			SetJ(-a.getAvance());
-		main.remove(a);
 	}
 	
 	public String getDirectionPiont() {
@@ -163,8 +171,23 @@ public class Player {
 	public void gainDrapeau() {
 		if(priseDrapeau())
 			System.out.println(nom + " s'est empare des trois drapeaux !"); 
-		else
-			drapeau += 1;
+		else {
+			if(drapeau == 0) {
+				if(Map.getMap()[getI()][getJ()] == "1 ") {
+					drapeau = 1;
+				}
+			}
+			else if(drapeau == 1) {
+				if(Map.getMap()[getI()][getJ()] == "2 ") {
+					drapeau = 2;
+				}
+			}
+			else
+				if(Map.getMap()[getI()][getJ()] == "3 ") {
+					drapeau = 3;
+				}
+		}
+			
 	}
 	
 	public void Degat() {
@@ -197,12 +220,6 @@ public class Player {
 		return main.size();
 	}
 	
-	private boolean JeuVide() {
-		if(carteMain()<=0)
-			return false;
-		else
-			return true;
-	}
 	
 	public void ajoutMain(Carte carte) {
 		if(carteMain()>=9 || carte == null)

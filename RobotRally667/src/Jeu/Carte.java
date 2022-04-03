@@ -10,7 +10,7 @@ public class Carte {
 
 	public Carte(int points) {
 		if(points < 0) {
-			System.err.println("pas de carte négative");
+			System.err.println("pas de carte a points negatifs");
 		}
 		else
 			this.points = points;
@@ -47,12 +47,19 @@ public class Carte {
 	}
 	
 	public static void distribution(ArrayList<Carte> main) {
-		if(main.size() < 9) {
+		while(pioche.size() > 18) {
+			if(main.size() < 9) {
 			int i = ((int) (Math.random())*(pioche.size()));
 			main.add(pioche.get(i));
 			pioche.remove(i);
-			
+			}
 		}
+		if(pioche.size() <= 18) {
+			pioche.addAll(defausse);
+			melange();
+			System.out.println("Pioche melangee !");
+		}
+		
 	}
 
 	
