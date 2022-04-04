@@ -29,8 +29,6 @@ public class Test {
 		
 		is.close();
 		return packet; // faut changer
-		
-		
 	}
 	
 	
