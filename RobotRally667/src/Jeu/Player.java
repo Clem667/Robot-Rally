@@ -16,7 +16,7 @@ public class Player {
 	private int pointDegat; //??
 	private int j = 4;
 	private int i = 0;
-	private int g = 0;// position dans la liste des orientations et qui dï¿½terminera directionPiont
+	private int g = 0;// position dans la liste des orientations et qui déterminera directionPiont
 	private final String [] directionPiont = {"S","O","N","E"};
 	
 	
@@ -44,7 +44,7 @@ public class Player {
 			Map.getMap()[getI()][getJ()] = "R ";
 		else if(Map.getMap()[getI()][getJ()] == "! ") {
 			Map.getMap()[getI()][getJ()] = "R ";
-			System.out.println(nom + " a pris un piï¿½ge !");
+			System.out.println(nom + " a pris un piège !");
 			Degat();
 		}
 		else if(Map.getMap()[getI()][getJ()] == "V ") {
@@ -156,6 +156,7 @@ public class Player {
 	}
 	
 	private boolean priseDrapeau() { // sert pour la methode gainDrapeau donc private car nous en aurons pas besoin dans les autres classes
+		gainDrapeau();
 		if(drapeau == 3) {
 			System.out.println(nom + " a gagne la partie");
 			return false;
@@ -168,7 +169,7 @@ public class Player {
 		return enVie() && priseDrapeau();
 	}
 	
-	public void gainDrapeau() {
+	private void gainDrapeau() {
 		if(priseDrapeau())
 			System.out.println(nom + " s'est empare des trois drapeaux !"); 
 		else {
@@ -183,7 +184,7 @@ public class Player {
 				}
 			}
 			else
-				if(Map.getMap()[getI()][getJ()] == "3 ") { 
+				if(Map.getMap()[getI()][getJ()] == "3 ") {
 					drapeau = 3;
 				}
 		}
