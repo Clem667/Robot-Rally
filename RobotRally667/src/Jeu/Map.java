@@ -33,7 +33,7 @@ public class Map {
             for(int j = 0; j < 3; j++) {// piege a partir de la ligne 2
             	int a = 2 + i;
             	int b = (int) (Math.random()*(10));
-                if(this.getMap()[a][b].equals("# ")) {
+                if(getMap()[a][b].equals("# ")) {
                 	tab[a][b]="! "; // pieges
                  }
             }
@@ -43,7 +43,7 @@ public class Map {
             for(int j = 0; j < 2; j++) { // vie a partir de 3 ou 4
             	int a = 3 + i*3;
             	int b = (int) (Math.random()*(10));
-                if(this.getMap()[a][b].equals("# ")) {
+                if(getMap()[a][b].equals("# ")) {
                 	tab[a][b]="V "; //points de vie
                 }
             }
@@ -52,7 +52,7 @@ public class Map {
         for(int i = 0; i<=2; i++) {
         	int a = 3+i*3; // Les drapeaux doivent etre places a la ligne 3 minimum
         	int b = (int) (Math.random()*(10));
-        	if(this.getMap()[a][b] != "# ") { // ne doit pas remplacer des cases speciales
+        	if(getMap()[a][b] != "# ") { // ne doit pas remplacer des cases speciales
         		i = i - 1;
         	}
         	else
@@ -60,9 +60,9 @@ public class Map {
         	
         }
  
-    }
+	}
 
-    public String[][] getMap() {
+    public static String[][] getMap() {
         return tab;
     }
 
