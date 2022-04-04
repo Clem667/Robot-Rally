@@ -8,18 +8,12 @@ public class Player {
 		this.nom = nom;
 	}
 	
-	private List<Carte> main = new ArrayList<Carte>();
-	private String name;
-	
 	private ArrayList<Carte> main = new ArrayList<Carte>();
 	private String nom;
 	private int PV = 3;
 	private int drapeau = 0;
 	private boolean horsTension = false; //??
 	private int pointDegat; //??
-	public int j = 4;
-	public int i = 8;
-	private int g = 0;// position dans la liste des orientations et qui d�terminera directionPiont
 	private int j = 4;
 	private int i = 0;
 	private int g = 0;// position dans la liste des orientations et qui d�terminera directionPiont
