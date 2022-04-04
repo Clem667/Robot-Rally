@@ -156,7 +156,6 @@ public class Player {
 	}
 	
 	private boolean priseDrapeau() { // sert pour la methode gainDrapeau donc private car nous en aurons pas besoin dans les autres classes
-		gainDrapeau();
 		if(drapeau == 3) {
 			System.out.println(nom + " a gagne la partie");
 			return false;
@@ -169,7 +168,7 @@ public class Player {
 		return enVie() && priseDrapeau();
 	}
 	
-	private void gainDrapeau() {
+	public void gainDrapeau() {
 		if(priseDrapeau())
 			System.out.println(nom + " s'est empare des trois drapeaux !"); 
 		else {

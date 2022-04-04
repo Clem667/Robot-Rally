@@ -34,7 +34,7 @@ public class Test {
 	
 	
 	public static void main(String[] args) throws IOException {
-		File fichier = new File(/*"C:\\Users\\cleme\\git\\Robot-Rally\\RobotRally667\\src\\Jeu\\carte2.txt"); */ "/Users/axel/git/Robot-Rally/RobotRally667/src/Jeu/carte2.txt");
+		File fichier = new File("C:\\Users\\cleme\\git\\Robot-Rally\\RobotRally667\\src\\Jeu\\carte2.txt");
 		Carte.setPioche(lectureCarte(fichier));
 		Carte.melange();
 		Scanner sc = new Scanner(System.in); //demande de choisir un niv de difficultee entre 1 et 8
