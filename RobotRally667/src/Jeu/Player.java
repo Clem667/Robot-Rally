@@ -8,7 +8,7 @@ public class Player {
 	public Player(String name) {
 		this.name = name;
 	}
-	
+
 	private List<Carte> main = new ArrayList<Carte>();
 	private String name;
 	private int PV = 3;
@@ -17,7 +17,7 @@ public class Player {
 	private int pointDegat; //??
 	public int j = 4;
 	public int i = 8;
-	private int g = 0;// position dans la liste des orientations et qui déterminera directionPiont
+	private int g = 0;// position dans la liste des orientations et qui dï¿½terminera directionPiont
 	private final String [] directionPiont = {"S","O","N","E"};
 
 	private void SetI(int a) {
