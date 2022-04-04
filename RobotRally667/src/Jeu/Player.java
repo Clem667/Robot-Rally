@@ -183,7 +183,7 @@ public class Player {
 				}
 			}
 			else
-				if(Map.getMap()[getI()][getJ()] == "3 ") { //je crois qu'il manque un else
+				if(Map.getMap()[getI()][getJ()] == "3 ") { 
 					drapeau = 3;
 				}
 		}
