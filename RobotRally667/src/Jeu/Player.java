@@ -49,7 +49,7 @@ public class Player {
 		}
 		else if(Map.getMap()[getI()][getJ()] == "V ") {
 			Map.getMap()[getI()][getJ()] = "R ";
-			System.out.println(nom + " perd un point de vie");
+			System.out.println(nom + " gagne un point de vie");
 			Gain();
 		}
 	}
