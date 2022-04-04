@@ -7,28 +7,22 @@ public class Player {
 	public Player(String nom) {
 		this.nom = nom;
 	}
-<<<<<<< HEAD
-
+	
 	private List<Carte> main = new ArrayList<Carte>();
 	private String name;
-=======
 	
 	private ArrayList<Carte> main = new ArrayList<Carte>();
 	private String nom;
->>>>>>> branch 'master' of https://github.com/Clem667/Robot-Rally.git
 	private int PV = 3;
 	private int drapeau = 0;
 	private boolean horsTension = false; //??
 	private int pointDegat; //??
-<<<<<<< HEAD
 	public int j = 4;
 	public int i = 8;
 	private int g = 0;// position dans la liste des orientations et qui dï¿½terminera directionPiont
-=======
 	private int j = 4;
 	private int i = 0;
-	private int g = 0;// position dans la liste des orientations et qui déterminera directionPiont
->>>>>>> branch 'master' of https://github.com/Clem667/Robot-Rally.git
+	private int g = 0;// position dans la liste des orientations et qui dï¿½terminera directionPiont
 	private final String [] directionPiont = {"S","O","N","E"};
 	
 	
@@ -56,7 +50,7 @@ public class Player {
 			Map.getMap()[getI()][getJ()] = "R ";
 		else if(Map.getMap()[getI()][getJ()] == "! ") {
 			Map.getMap()[getI()][getJ()] = "R ";
-			System.out.println(nom + " a pris un piège !");
+			System.out.println(nom + " a pris un piï¿½ge !");
 			Degat();
 		}
 		else if(Map.getMap()[getI()][getJ()] == "V ") {
@@ -195,7 +189,7 @@ public class Player {
 				}
 			}
 			else
-				if(Map.getMap()[getI()][getJ()] == "3 ") {
+				if(Map.getMap()[getI()][getJ()] == "3 ") { //je crois qu'il manque un else
 					drapeau = 3;
 				}
 		}
