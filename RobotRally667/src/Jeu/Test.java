@@ -55,10 +55,9 @@ public class Test {
 				Carte.distribution(player1.getMain());
 				Carte.distribution(player2.getMain());
 				
-				
 			}
 				
-			while((player1.controleJoueur() && player2.controleJoueur()) && (player1.getMain().size() > 0 && player2.getMain().size() > 0)) {
+			while(player1.controleJoueur() && player2.controleJoueur()) {
 				for(int tour = 0; tour<5; tour++) {
 					player1.placementJoueur();
 					player1.emplacement();

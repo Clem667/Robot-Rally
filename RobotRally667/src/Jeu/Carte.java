@@ -47,14 +47,14 @@ public class Carte {
 	}
 	
 	public static void distribution(ArrayList<Carte> main) {
-		while(pioche.size() > 18) {
+		if(pioche.size() > 18) {
 			if(main.size() < 9) {
 			int i = ((int) (Math.random())*(pioche.size()));
 			main.add(pioche.get(i));
 			pioche.remove(i);
 			}
 		}
-		if(pioche.size() <= 18) {
+		else {
 			pioche.addAll(defausse);
 			melange();
 			System.out.println("Pioche melangee !");
