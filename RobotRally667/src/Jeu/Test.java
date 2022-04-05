@@ -58,8 +58,10 @@ public class Test {
 			while(player1.controleJoueur() && player2.controleJoueur()) {
 				for(int tour = 0; tour<5; tour++) {
 					player1.placementJoueur();
+					player1.gainDrapeau();
 					player1.emplacement();
 					player2.placementJoueur();
+					player2.gainDrapeau();
 					player2.emplacement();
 					System.out.println(map1);
 					System.out.println(player1.getNom() + " choisissez votre carte : ");

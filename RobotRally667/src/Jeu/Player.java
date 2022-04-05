@@ -6,15 +6,19 @@ import java.util.Iterator;
 public class Player {
 	public Player(String nom) {
 		this.nom = nom;
+		this.num = numero+1;
+		numero++;
 	}
 	
 	private ArrayList<Carte> main = new ArrayList<Carte>();
 	private String nom;
+	private static int numero = 0;
+	private int num;
 	private int PV = 3;
 	private int drapeau = 0;
 	private boolean horsTension = false; //??
 	private int pointDegat; //??
-	private int j = 4;
+	private int j = 4 + numero;
 	private int i = 0;
 	private int g = 0;// position dans la liste des orientations et qui déterminera directionPiont
 	private final String [] directionPiont = {"S","O","N","E"};
@@ -35,23 +39,34 @@ public class Player {
 	public void placementJoueur() {
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++) {
-				if(Map.getMap()[i][j] == "R " && (i != getI() || j != getJ())) {
+				if(Map.getMap()[i][j].equals("R" + String.valueOf(num))) {
+					System.out.println(numero+1);
 					Map.getMap()[i][j] = "# ";
 				}
 			}
 		}
-		if(Map.getMap()[getI()][getJ()] == "# ")
-			Map.getMap()[getI()][getJ()] = "R ";
-		else if(Map.getMap()[getI()][getJ()] == "! ") {
-			Map.getMap()[getI()][getJ()] = "R ";
+		
+		if(Map.getMap()[getI()][getJ()].equals("# ")) {
+			Map.getMap()[getI()][getJ()] = "R" + String.valueOf(num);
+			System.out.println(numero+1);
+		}
+		else if(Map.getMap()[getI()][getJ()].equals("! ")) {
+			Map.getMap()[getI()][getJ()] = "R" + String.valueOf(num);
 			System.out.println(nom + " a pris un piège !");
 			Degat();
 		}
-		else if(Map.getMap()[getI()][getJ()] == "V ") {
-			Map.getMap()[getI()][getJ()] = "R ";
+		else if(Map.getMap()[getI()][getJ()].equals("V ")) {
+			Map.getMap()[getI()][getJ()] = "R" + String.valueOf(num);
 			System.out.println(nom + " gagne un point de vie");
 			Gain();
 		}
+		else if(Map.getMap()[getI()][getJ()].equals("R" + String.valueOf(num))) {
+			
+		}
+		else
+			System.out.println("Colision");
+			Degat();
+		
 	}
 	
 	
@@ -158,14 +173,14 @@ public class Player {
 	private boolean priseDrapeau() { // sert pour la methode gainDrapeau donc private car nous en aurons pas besoin dans les autres classes
 		if(drapeau == 3) {
 			System.out.println(nom + " a gagne la partie");
-			return false;
+			return true;
 		}
 		else
-			return true;
+			return false;
 	}
 	
 	public boolean controleJoueur() {//savoir si le joueur est en vie ou a gagner
-		return enVie() && priseDrapeau();
+		return enVie() && !priseDrapeau();
 	}
 	
 	public void gainDrapeau() {
@@ -173,17 +188,17 @@ public class Player {
 			System.out.println(nom + " s'est empare des trois drapeaux !"); 
 		else {
 			if(drapeau == 0) {
-				if(Map.getMap()[getI()][getJ()] == "1 ") {
+				if(Map.getMap()[getI()][getJ()].equals("1 ")) {
 					drapeau = 1;
 				}
 			}
 			else if(drapeau == 1) {
-				if(Map.getMap()[getI()][getJ()] == "2 ") {
+				if(Map.getMap()[getI()][getJ()].equals("2 ")) {
 					drapeau = 2;
 				}
 			}
 			else
-				if(Map.getMap()[getI()][getJ()] == "3 ") {
+				if(Map.getMap()[getI()][getJ()].equals("3 ")) {
 					drapeau = 3;
 				}
 		}
