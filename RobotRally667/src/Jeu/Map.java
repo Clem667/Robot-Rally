@@ -13,7 +13,7 @@ public class Map {
 			SetNomMap(niveau);
 		}
 		else
-			System.err.println("doit etre compris entre 0 et 3");
+			System.err.println("doit etre compris entre 1 et 8");
 	}
 
 	private void SetNomMap(int niveau) {// privee !
