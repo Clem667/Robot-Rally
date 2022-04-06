@@ -30,17 +30,23 @@ public class Player {
 		return choix;
 	}
 	
-	
-	public void setChoix() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Choisissez un chiffre entre 0 et 9 inclus");
-		int choix = sc.nextInt();
-		if(choix >= 0 && choix < 10)
-			this.choix = choix;
-		else {
-			System.out.println("Le choix doit être compris entre 0 et 9 inclus");
-			this.choix = (Integer) null;
+	public void setChoix() {// choix de la carte
+		if(!isHorsTension() && main.size()>=4) {
+			Scanner sc = new Scanner(System.in);
+			System.out.println(nom + " choisissez une carte :");
+			for(int i = 0; i < main.size(); i++) {
+				System.out.println(i + " : " + main.get(i).toString());
+			}
+			int choix = sc.nextInt();
+			if(choix >= 0 && choix < 10) {
+				this.choix = choix;
+			}
+			else {
+				System.out.println("Le choix doit être compris entre 0 et 9 inclus");
+			}
 		}
+		else
+			System.err.println(getNom() + " est hors tension");
 	}
 	
 	
@@ -280,7 +286,6 @@ public class Player {
 		}
 		if(i == 1) {
 			this.horsTension = true;
-			choix = (Integer) null;
 		}
 		else if(i == 2) {
 			this.horsTension = false;
