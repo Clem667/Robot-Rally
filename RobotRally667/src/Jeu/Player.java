@@ -22,7 +22,7 @@ public class Player {
 	private int pointDegat; //??
 	private int j = 4 + numero;
 	private int i = 0;
-	private int g = 0;// position dans la liste des orientations et qui déterminera directionPiont
+	private int g = 0;// position dans la liste des orientations et qui dï¿½terminera directionPiont
 	private final String [] directionPiont = {"S","O","N","E"};
 	
 	
@@ -76,7 +76,7 @@ public class Player {
 		}
 		else if(Map.getMap()[getI()][getJ()].equals("! ")) {
 			Map.getMap()[getI()][getJ()] = "R" + String.valueOf(num);
-			System.out.println(nom + " a pris un piège !");
+			System.out.println(nom + " a pris un piï¿½ge !");
 			Degat();
 		}
 		else if(Map.getMap()[getI()][getJ()].equals("V ")) {
@@ -91,10 +91,13 @@ public class Player {
 			String st = Map.getMap()[getI()][getJ()];
 			String st2 = st.substring(st.length());
 			System.out.println("Colision");
+<<<<<<< HEAD
+			Degat();
+=======
 			listeJoueur.get(Integer.parseInt(st2) - 1).Degat();
 		}
+>>>>>>> branch 'master' of https://github.com/Clem667/Robot-Rally.git
 	}
-	
 	
 	public int getI() {
 		return i;
@@ -103,7 +106,6 @@ public class Player {
 	public int getJ() {
 		return j;
 	}
-	
 	
 	private void SetI(int a) {
 		if((i + a) > 10)
