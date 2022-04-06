@@ -2,18 +2,20 @@ package Jeu;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class Player {
-	public Player(String nom) {
-		this.nom = nom;
+	public Player() {
 		this.num = numero+1;
 		numero++;
+		listeJoueur.add(this);
 	}
-	
+	private static ArrayList<Player> listeJoueur = new ArrayList<Player>();
 	private ArrayList<Carte> main = new ArrayList<Carte>();
-	private String nom;
+	private int choix;
 	private static int numero = 0;
-	private int num;
+	private int num = numero + 1;
+	private String nom = "R" + num;
 	private int PV = 3;
 	private int drapeau = 0;
 	private boolean horsTension = false; //??
@@ -22,6 +24,24 @@ public class Player {
 	private int i = 0;
 	private int g = 0;// position dans la liste des orientations et qui déterminera directionPiont
 	private final String [] directionPiont = {"S","O","N","E"};
+	
+	
+	public int getChoix() {// retourne le choix de la carte
+		return choix;
+	}
+	
+	
+	public void setChoix() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Choisissez un chiffre entre 0 et 9 inclus");
+		int choix = sc.nextInt();
+		if(choix >= 0 && choix < 10)
+			this.choix = choix;
+		else {
+			System.out.println("Le choix doit être compris entre 0 et 9 inclus");
+			this.choix = (Integer) null;
+		}
+	}
 	
 	
 	public String getNom() {
@@ -40,7 +60,6 @@ public class Player {
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++) {
 				if(Map.getMap()[i][j].equals("R" + String.valueOf(num))) {
-					System.out.println(numero+1);
 					Map.getMap()[i][j] = "# ";
 				}
 			}
@@ -48,7 +67,6 @@ public class Player {
 		
 		if(Map.getMap()[getI()][getJ()].equals("# ")) {
 			Map.getMap()[getI()][getJ()] = "R" + String.valueOf(num);
-			System.out.println(numero+1);
 		}
 		else if(Map.getMap()[getI()][getJ()].equals("! ")) {
 			Map.getMap()[getI()][getJ()] = "R" + String.valueOf(num);
@@ -63,10 +81,12 @@ public class Player {
 		else if(Map.getMap()[getI()][getJ()].equals("R" + String.valueOf(num))) {
 			
 		}
-		else
+		else {
+			String st = Map.getMap()[getI()][getJ()];
+			String st2 = st.substring(st.length());
 			System.out.println("Colision");
-			Degat();
-		
+			listeJoueur.get(Integer.parseInt(st2) - 1).Degat();
+		}
 	}
 	
 	
@@ -86,6 +106,7 @@ public class Player {
 			i = 0;
 		else
 			i = i + a;
+		placementJoueur();
 	}
 	
 	private void SetJ(int a) {
@@ -95,10 +116,11 @@ public class Player {
 			j = 0;
 		else
 			j = j + a;
+		placementJoueur();
 	}
 	
-	public void emplacement() {
-		System.out.println(nom + " est en : " + i + " " + j + " " + directionPiont[g]);
+	public String emplacement() {
+		return nom + " est en : " + i + " " + j + " " + directionPiont[g];
 	}
 	
 	public void add(Carte c) {
@@ -141,12 +163,17 @@ public class Player {
 		main.remove(c);
 	}
 	public void utilisationA(Avancer a) {
-		if(directionPiont[g].equals("S"))
-			SetI(a.getAvance());
+		if(directionPiont[g].equals("S")) {
+			for(int i = 0; i < a.getAvance(); i++) {
+				SetI(1);
+			}
+		}
 		else if(directionPiont[g].equals("N"))
 			SetI(-a.getAvance());
 		else if(directionPiont[g].equals("E")) {
-			SetJ(a.getAvance());
+			for(int i = 0; i < a.getAvance(); i++) {
+				SetJ(1);
+			}
 		}
 		else
 			SetJ(-a.getAvance());
@@ -163,7 +190,6 @@ public class Player {
 	
 	private boolean enVie() {
 		if(PV <= 0) {
-			setHorsTension(true);
 			return false;
 		}
 		else
@@ -244,20 +270,35 @@ public class Player {
 	}
 
 
-	public boolean isHorsTension() { //getter et setter hors tension pas besoin
+	public boolean isHorsTension() {
 		return horsTension;
 	}
 
-	public void setHorsTension(boolean horsTension) {
-		this.horsTension = horsTension;
+	public void setHorsTension(int i) {
+		if(horsTension) {
+			Gain();
+		}
+		if(i == 1) {
+			this.horsTension = true;
+			choix = (Integer) null;
+		}
+		else if(i == 2) {
+			this.horsTension = false;
+		}
 	}
+	
 
-	public int getPointDegat() { //getter et setteur hors tension mais pas besoin pour l'instant
+	public int getPointDegat() {
 		return pointDegat;
 	}
 
 	public void setPointDegat(int pointDegat) {
 		this.pointDegat = pointDegat;
+	}
+	
+	public String toString() {
+		return nom + " a " + getPV() + " PV et " + drapeau + " drapeau\n"
+				+ emplacement();
 	}
 	
 	

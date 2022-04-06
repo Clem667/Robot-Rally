@@ -43,6 +43,8 @@ public class Server extends Thread {
 					break;
 				}
 			}
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
