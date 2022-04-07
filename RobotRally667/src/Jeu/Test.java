@@ -69,15 +69,34 @@ public class Test {
 					player2.gainDrapeau();
 					player2.emplacement();
 					player2.getPV();
-					System.out.println(player2.getNom() + " voulez-vous vous mettre hors tension :\n1 : oui\n2 : non");
+					System.out.println(player2.getNom() + " voulez-vous vous mettre hors tension :");
 					int reponse2 = sc.nextInt();
 					player2.setHorsTension(reponse2);
 					System.out.println(map1);
 					
-					player1.setChoix();
-					player2.setChoix();
+					if(!player1.isHorsTension()) {
+						System.out.println(player1.getNom() + " choisissez votre carte : ");
+						for(int a = 0; a < player1.getMain().size(); a++) {
+							System.out.print(a + " : " + player1.getMain(a).toString());
+							
+						}
+						player1.setChoix();
+					}
+					else
+						System.out.println(player1.getNom() + " est hors tension");
 					
-					if(!player1.isHorsTension() && !player2.isHorsTension()) {
+					
+					if(!player2.isHorsTension()) {
+						System.out.println(player2.getNom() + " choisissez votre carte : ");
+						for(int a = 0; a < player2.getMain().size(); a++) {
+							System.out.print(a + " : " + player2.getMain(a).toString());
+							
+						}
+						player2.setChoix();
+					}
+					
+					if(player1.isHorsTension() && player2.isHorsTension()) {
+						
 						
 						if(player1.getMain(player1.getChoix()).getPoints() > player2.getMain(player2.getChoix()).getPoints()) {
 							player1.utilisation(player1.getMain(player1.getChoix()));
@@ -88,32 +107,21 @@ public class Test {
 							player2.utilisation(player2.getMain(player2.getChoix()));
 							player1.utilisation(player1.getMain(player1.getChoix()));
 						}
-					
 						
 					System.out.println("Fin du tour !");
-					}
-					else if(!player1.isHorsTension() && player2.isHorsTension()) {
-						player1.utilisation(player1.getMain(player1.getChoix()));
-					}
-					else if(player1.isHorsTension() && !player2.isHorsTension()) {
-						player2.utilisation(player2.getMain(player2.getChoix()));
-					}
-					
-					tour++;
-					//
+				}
 				
 				}
 				
 				
 				
 			}
-			
+			sc.close();
 		}
 			
 		
 		
-		sc.close();
+		
 	}
-	
 }
 

@@ -19,17 +19,17 @@ public class Server extends Thread {
 	@Override
 	public void run() {
 		try {
-			//Création Serveur Socket
+			//Crï¿½ation Serveur Socket
 			ServerSocket ss = new ServerSocket(61234);
-			System.out.println("Démarrage du server");
+			System.out.println("Dï¿½marrage du server");
 			//Boucle d'attente de connexion
 			while(nbClients < 4) {
-				//Création Socket client / ServeurSocket attend connexion
+				//Crï¿½ation Socket client / ServeurSocket attend connexion
 				Socket s = ss.accept();
 				listSocket.add(s);
 				
 				nbClients++;
-				//Création (connexion) de la conversation prend en parametre un Socket(Client)
+				//Crï¿½ation (connexion) de la conversation prend en parametre un Socket(Client)
 				Connection connection = new Connection(s, nbClients);
 				connection.start();
 				listConnection.add(connection);
@@ -114,7 +114,7 @@ public class Server extends Thread {
 	}
 	
 	
-	//Création class Connection extends Thread
+	//Crï¿½ation class Connection extends Thread
 	class Connection extends Thread {
 		private Socket socket;
 		private int numeroClient;
@@ -142,12 +142,12 @@ public class Server extends Thread {
 				//adresse ip du client
 				String ip = socket.getRemoteSocketAddress().toString();
 				
-				System.out.println("Connexion du client numéro " + numeroClient + "IP = " + ip);
+				System.out.println("Connexion du client numï¿½ro " + numeroClient + "IP = " + ip);
 				
 				
 				while(true) {
 					String requete = br.readLine();
-					System.out.println(ip + " a envoyé " + requete);
+					System.out.println(ip + " a envoyï¿½ " + requete);
 					if(requete.equals("[start]")) {
 						setReady(true);
 					}
