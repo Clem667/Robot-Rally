@@ -19,7 +19,7 @@ public class Server extends Thread {
 	@Override
 	public void run() {
 		try {
-			//Création Serveur Socket
+			//Création Serveur Sockett
 			ServerSocket ss = new ServerSocket(61234);
 			System.out.println("Démarrage du server");
 			//Boucle d'attente de connexion
