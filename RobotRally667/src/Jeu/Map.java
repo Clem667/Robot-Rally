@@ -21,7 +21,7 @@ public class Map {
 	}
 	
 	
-	public Map(int niveau) {
+	public Map() {
 		SetNiveau(niveau);
 		System.out.println("Bienvenue sur la " + nomMap);
 		for(int i = 0; i < tailleLigne; i++) {
@@ -76,6 +76,8 @@ public class Map {
         }
         return r;
     }
+    
+    
 }
 	
 

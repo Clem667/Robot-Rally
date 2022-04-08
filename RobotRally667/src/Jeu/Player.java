@@ -42,7 +42,7 @@ public class Player {
 				this.choix = choix;
 			}
 			else {
-				System.out.println("Le choix doit être compris entre 0 et 9 inclus");
+				System.out.println("Le choix doit etre compris entre 0 et 9 inclus");
 			}
 		}
 		else
@@ -90,11 +90,15 @@ public class Player {
 		else {
 			String st = Map.getMap()[getI()][getJ()];
 			String st2 = st.substring(st.length());
+
 			System.out.println("Colision");
 			Degat();
+
+			System.out.println("Colision");
+			Degat();
+
 			listeJoueur.get(Integer.parseInt(st2) - 1).Degat();
 		}
-
 	}
 	
 	public int getI() {

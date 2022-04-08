@@ -34,14 +34,16 @@ public class Test {
 	
 	
 	public static void main(String[] args) throws IOException {
-		//File fichier = new File("C:\\Users\\cleme\\git\\Robot-Rally\\RobotRally667\\src\\Jeu\\carte2.txt");
-		File fichier = new File("/Users/axel/git/Robot-Rally/RobotRally667/src/Jeu/carte2.txt");
+		File fichier = new File("C:\\Users\\cleme\\git\\Robot-Rally\\RobotRally667\\src\\Jeu\\carte2.txt");
+		//File fichier = new File("/Users/axel/git/Robot-Rally/RobotRally667/src/Jeu/carte2.txt");
 		Carte.setPioche(lectureCarte(fichier));
 		Carte.melange();
 		Scanner sc = new Scanner(System.in); //demande de choisir un niv de difficultee entre 1 et 8
-	    System.out.print("Veuillez choisir un niveau de difficultee entre 1 et 8 :");
+	    System.out.print("Veuillez choisir un niveau de difficultee entre 1 et 3 :");
 	    int i = sc.nextInt();
-		Map map1 = new Map(i);
+	    MapEasy easy = new MapEasy();
+	    System.out.println(easy);
+		Map map1 = new Map();
 		System.out.println(map1);
 
 		
@@ -69,7 +71,7 @@ public class Test {
 					player2.gainDrapeau();
 					player2.emplacement();
 					player2.getPV();
-					System.out.println(player2.getNom() + " voulez-vous vous mettre hors tension :\n1 : oui\n2 : non");
+					System.out.println(player2.getNom() + " voulez-vous vous mettre hors tension :");
 					int reponse2 = sc.nextInt();
 					player2.setHorsTension(reponse2);
 					System.out.println(map1);
@@ -77,7 +79,8 @@ public class Test {
 					player1.setChoix();
 					player2.setChoix();
 					
-					if(!player1.isHorsTension() && !player2.isHorsTension()) {
+					if(player1.isHorsTension() && player2.isHorsTension()) {
+						
 						
 						if(player1.getMain(player1.getChoix()).getPoints() > player2.getMain(player2.getChoix()).getPoints()) {
 							player1.utilisation(player1.getMain(player1.getChoix()));
@@ -88,7 +91,7 @@ public class Test {
 							player2.utilisation(player2.getMain(player2.getChoix()));
 							player1.utilisation(player1.getMain(player1.getChoix()));
 						}
-					
+						
 						
 					System.out.println("Fin du tour !");
 					}
@@ -98,22 +101,20 @@ public class Test {
 					else if(player1.isHorsTension() && !player2.isHorsTension()) {
 						player2.utilisation(player2.getMain(player2.getChoix()));
 					}
-					
+
 					tour++;
-					//
 				
 				}
 				
 				
 				
 			}
-			
+			sc.close();
 		}
 			
 		
 		
-		sc.close();
+		
 	}
-	
 }
 
