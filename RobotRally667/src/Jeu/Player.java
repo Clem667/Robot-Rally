@@ -91,12 +91,10 @@ public class Player {
 			String st = Map.getMap()[getI()][getJ()];
 			String st2 = st.substring(st.length());
 			System.out.println("Colision");
-<<<<<<< HEAD
 			Degat();
-=======
 			listeJoueur.get(Integer.parseInt(st2) - 1).Degat();
 		}
->>>>>>> branch 'master' of https://github.com/Clem667/Robot-Rally.git
+
 	}
 	
 	public int getI() {
