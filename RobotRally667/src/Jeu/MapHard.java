@@ -17,7 +17,9 @@ public class MapHard extends Map {
 	
 	//rajouter les vies
 	
-	public MapHard() {
+	public MapHard() { // map difficile predefinie
+		SetNiveau(3);
+		this.tab = mapHard;
 	}
 
 	public static String[][] getMap() {

@@ -1,6 +1,6 @@
 package Jeu;
 
-public class MapEasy extends Map{
+public class MapEasy extends Map {
 
 	private final static String[][] mapEasy = { 
 			{"# ", "# ", "# ", "# ", "# ", "# ", "# ", "# ", "# ", "# "}, 
@@ -12,16 +12,18 @@ public class MapEasy extends Map{
 			{"# ", "# ", "2 ", "! ", "# ", "# ", "# ", "! ", "# ", "# "},
 			{"# ", "! ", "# ", "# ", "# ", "# ", "# ", "# ", "# ", "# "},
 			{"# ", "# ", "# ", "# ", "# ", "! ", "# ", "# ", "! ", "# "},
-			{"# ", "# ", "# ", "# ", "3 ", "# ", "# ", "# ", "# ", "# "}
-			}; 
+			{"# ", "# ", "# ", "# ", "3 ", "# ", "# ", "# ", "# ", "# "}}; 
 	
 	//rajouter les vies
 	
-	public MapEasy() {
+	
+	public MapEasy() { // map facile
+		SetNiveau(1);
+		this.tab = mapEasy;
 	}
 
 	public static String[][] getMap() {
-		return mapEasy;
+		return tab;
 	}
 	
 }

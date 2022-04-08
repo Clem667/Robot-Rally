@@ -1,27 +1,21 @@
 package Jeu;
 
-public class Map {
+public class Map { // des maps sont predefinie pour faciliter le travail graphique
 	private static final int tailleLigne = 10;//pas besoin de modifier a chaque fois (cote pratique)
 	private static final int tailleColonne = 10;
-	private static String[][] tab = new String[tailleLigne][tailleColonne];
-	private String nomMap;
+	protected static String[][] tab = new String[tailleLigne][tailleColonne];
 	private int niveau;
 	
-	private void SetNiveau(int niveau) {
-		if(niveau <= 8 && niveau > 1) {
+	protected void SetNiveau(int niveau) {
+		if(niveau <= 3 && niveau >= 1) 
 			this.niveau = niveau;
-			SetNomMap(niveau);
-		}
 		else
-			System.err.println("doit etre compris entre 1 et 8");
+			System.err.println("doit etre compris entre 1 et 3");
 	}
 
-	private void SetNomMap(int niveau) {// privee !
-		this.nomMap = "Map de niveau " + niveau;
-	}
+	private String nomMap = "Map de niveau " + niveau;
 	
-	
-	public Map() {
+	public Map() { // map genere automatiquement
 		SetNiveau(niveau);
 		System.out.println("Bienvenue sur la " + nomMap);
 		for(int i = 0; i < tailleLigne; i++) {

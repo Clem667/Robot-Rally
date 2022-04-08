@@ -1,6 +1,6 @@
 package Jeu;
 
-public class MapMedium {
+public class MapMedium extends Map {
 	
 	private final static String[][] mapMedium = { 
 			{"# ", "# ", "# ", "# ", "# ", "# ", "# ", "# ", "# ", "# "}, 
@@ -17,12 +17,13 @@ public class MapMedium {
 	
 	//rajouter les vies
 	
-	public MapMedium() {
-		
+	public MapMedium() { // map normal
+		SetNiveau(2);
+		this.tab = mapMedium;
 	}
 
-	public static String[][] getMapMedium() {
-		return null;
+	public static String[][] getMap() {
+		return mapMedium;
 	}
 	
 }

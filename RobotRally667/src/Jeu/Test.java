@@ -43,8 +43,6 @@ public class Test {
 	    int i = sc.nextInt();
 	    MapEasy easy = new MapEasy();
 	    System.out.println(easy);
-		Map map1 = new Map();
-		System.out.println(map1);
 
 		
 		Player player1 = new Player();
@@ -74,7 +72,7 @@ public class Test {
 					System.out.println(player2.getNom() + " voulez-vous vous mettre hors tension :");
 					int reponse2 = sc.nextInt();
 					player2.setHorsTension(reponse2);
-					System.out.println(map1);
+					System.out.println(easy);
 					
 					player1.setChoix();
 					player2.setChoix();
@@ -98,6 +96,8 @@ public class Test {
 					else if(!player1.isHorsTension() && player2.isHorsTension()) {
 						player1.utilisation(player1.getMain(player1.getChoix()));
 					}
+					
+					
 					else if(player1.isHorsTension() && !player2.isHorsTension()) {
 						player2.utilisation(player2.getMain(player2.getChoix()));
 					}
