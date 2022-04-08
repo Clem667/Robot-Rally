@@ -1,6 +1,8 @@
 package server;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Server extends Thread {
-	private int nbClients;
+	/*private int nbClients;
 	private List<Socket> listSocket = new ArrayList<Socket>();
 	private List<Connection> listConnection = new ArrayList<Connection>();
 	
@@ -210,5 +212,23 @@ public class Server extends Thread {
 			this.ready = ready;
 		}
 		
+	} */
+	
+	public static void main (String [] args) throws IOException {
+		
+		ServerSocket ss = new ServerSocket(1026); //meme port que client
+		System.out.println("En attente de connection d'un client");
+		Socket s = ss.accept(); 
+		System.out.println("Connection établie");
+		//on recupere la donnée d'un client, pour cela on definie un flux d'entree
+		DataInputStream in = new DataInputStream(s.getInputStream()); 
+		String nomClient = in.readUTF(); 
+		//On effectue un traitement pour notifier au client que la connexion s'est bien passee
+		String s1 = "Bienvenue " + nomClient +", vous etes connecte.";
+		//envoyer la donnee au client et donc definir un flux de sortie pour s1
+		DataOutputStream out = new DataOutputStream(s.getOutputStream());
+		out.writeUTF(s1);
+		
 	}
+	
 }
