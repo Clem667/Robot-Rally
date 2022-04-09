@@ -13,9 +13,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
-
-
-
+import Jeu.Player;
 
 
 
@@ -35,7 +33,7 @@ public class SetupClass extends StateBasedGame implements Runnable {
 	public SetupClass(String title) {
 		super(title);
 		try {
-			Socket s = new Socket("LocalHost", 61234);
+			Socket s = new Socket("LocalHost", 61834);
 			bufferedReader = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			printWriter = new PrintWriter(s.getOutputStream(), true);
 			t = new Thread(this);
@@ -63,14 +61,14 @@ public class SetupClass extends StateBasedGame implements Runnable {
 		app.start();
 	}
 	
-	public void initStatesList(GameContainer arg0) throws SlickException {
+	/*public void initStatesList(GameContainer arg0) throws SlickException {
 		this.addState(new GameStateMenu());
 		this.addState(new GameStateJoueur1());
 		this.addState(new GameStateChoose1());
 		this.addState(new GameStateBet1());
 		this.addState(new GameStateResult());
 		this.addState(new GameStateOver());   
-	}
+	}*/
 
 	@Override
 	public void run() {
@@ -220,6 +218,12 @@ public class SetupClass extends StateBasedGame implements Runnable {
 	
 	public void start() {
 		t.start();
+	}
+
+	@Override
+	public void initStatesList(GameContainer arg0) throws SlickException {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
