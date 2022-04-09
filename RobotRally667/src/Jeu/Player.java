@@ -19,7 +19,6 @@ public class Player {
 	private int PV = 3;
 	private int drapeau = 0;
 	private boolean horsTension = false; //??
-	private int pointDegat; //??
 	private int j = 4 + numero;
 	private int i = 0;
 	private int g = 0;// position dans la liste des orientations et qui d�terminera directionPiont
@@ -288,15 +287,6 @@ public class Player {
 		else if(i == 2) {
 			this.horsTension = false;
 		}
-	}
-	
-
-	public int getPointDegat() {
-		return pointDegat;
-	}
-
-	public void setPointDegat(int pointDegat) {
-		this.pointDegat = pointDegat;
 	}
 	
 	public String toString() {
