@@ -17,9 +17,9 @@ public class MapEasy extends Map {
 	//rajouter les vies
 	
 	
-	public MapEasy() { // map facile
+	public MapEasy() {
 		SetNiveau(1);
-		this.tab = mapEasy;
+		tab = mapEasy;
 	}
 
 	public static String[][] getMap() {

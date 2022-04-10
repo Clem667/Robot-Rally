@@ -16,9 +16,9 @@ public class MapMedium extends Map {
 	
 	//rajouter les vies
 	
-	public MapMedium() { // map normal
+	public MapMedium() {
 		SetNiveau(2);
-		this.tab = mapMedium;
+		tab = mapMedium;
 	}
 
 	public static String[][] getMap() {
