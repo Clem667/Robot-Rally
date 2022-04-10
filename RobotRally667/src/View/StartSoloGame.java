@@ -41,20 +41,20 @@ public class StartSoloGame extends JFrame implements ActionListener {
 		this.setResizable(false);
 
 		start.setBounds(100, 300, 300, 100);
-		start.setIcon(new ImageIcon(StartSoloGame.class.getResource("/ImageRessources/singlee.png")));
+		start.setIcon(new ImageIcon(StartSoloGame.class.getResource("/ImageRessources/start.png")));
 		start.addActionListener(this);
 		getContentPane().add(start);
 		
 		easy.setBounds(50, 100, 90, 90);
-		easy.setIcon(new ImageIcon(StartSoloGame.class.getResource("/ImageRessources/player1.png")));
+		easy.setIcon(new ImageIcon(StartSoloGame.class.getResource("/ImageRessources/easy.png")));
 		getContentPane().add(easy);
 		
 		medium.setBounds(190, 100, 90, 90);
-		medium.setIcon(new ImageIcon(StartSoloGame.class.getResource("/ImageRessources/player2.png")));
+		medium.setIcon(new ImageIcon(StartSoloGame.class.getResource("/ImageRessources/medium.png")));
 		getContentPane().add(medium);
 		
 		hard.setBounds(330, 100, 90, 90);
-		hard.setIcon(new ImageIcon(StartSoloGame.class.getResource("/ImageRessources/player3.png")));
+		hard.setIcon(new ImageIcon(StartSoloGame.class.getResource("/ImageRessources/hard.png")));
 		getContentPane().add(hard);
 		
 		title.setText("Choose your level");

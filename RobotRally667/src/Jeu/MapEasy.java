@@ -17,6 +17,7 @@ public class MapEasy extends Map {
 	public MapEasy() {
 		SetNiveau(1);
 		tab = mapEasy;
+		System.out.println("Bienvenue sur la map facile !");
 	}
 
 	public static String[][] getMap() {

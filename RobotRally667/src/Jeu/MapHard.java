@@ -17,6 +17,7 @@ public class MapHard extends Map {
 	public MapHard() {
 		SetNiveau(3);
 		tab = mapHard;
+		System.out.println("Bienvenue sur la map difficile !");
 	}
 
 	public static String[][] getMap() {
