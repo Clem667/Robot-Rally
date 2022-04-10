@@ -14,7 +14,9 @@ public class MapHard extends Map {
 			{"# ", "# ", "# ", "# ", "! ", "! ", "# ", "! ", "! ", "# "},
 			{"# ", "! ", "# ", "! ", "3 ", "# ", "! ", "# ", "# ", "! "}}; 
 		
-	public MapHard() { // map difficile predefinie
+	public MapHard() {
+		// map difficile predefinie
+	}
 	
 	//rajouter les vies
 	
