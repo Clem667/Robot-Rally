@@ -1,23 +1,23 @@
 package Jeu;
 
+import java.util.Scanner;
+
 public class Map { // des maps sont predefinie pour faciliter le travail graphique
 	private static final int tailleLigne = 10;//pas besoin de modifier a chaque fois
 	private static final int tailleColonne = 10;
 	protected static String[][] tab = new String[tailleLigne][tailleColonne];
 	private int niveau;
 	
-	protected void SetNiveau(int niveau) {
-		if(niveau <= 3 && niveau >= 1) 
+	public void SetNiveau(int niveau) {
+		if(niveau <= 3 && niveau >= 1) {
 			this.niveau = niveau;
-		else
+		}
+		else {
 			System.err.println("doit etre compris entre 1 et 3");
+		}
 	}
-
-	private String nomMap = "Map de niveau " + niveau;
 	
 	public Map() { // map genere automatiquement
-		SetNiveau(niveau);
-		System.out.println("Bienvenue sur la " + nomMap);
 		for(int i = 0; i < tailleLigne; i++) {
             for(int j = 0; j < tailleColonne; j++) {
                 tab[i][j]="# "; //creation de cases normales (vides)

@@ -12,19 +12,19 @@ public class Player implements Comparable<Player> {
 	}
 	
 	
-	private static ArrayList<Player> listeJoueur = new ArrayList<Player>(4);
-	private ArrayList<Carte> main = new ArrayList<Carte>();
-	private int choix;
+	public static ArrayList<Player> listeJoueur = new ArrayList<Player>(4);// les joueurs seront stocké dans cette liste s'ils ne sont pas hors tension
+	private ArrayList<Carte> main = new ArrayList<Carte>();// seront stockés les 9 cartes du joueur.
+	private int choix;// correspond au choix de la carte
 	private static int numero = 0;
-	private int num = numero + 1;
+	private int num = numero + 1;// correspond au numéro d'un joueur
 	private String nom = "R" + num;
-	private int PV = 3;
+	private int PV = 3;// 3 points de vie
 	private int drapeau = 0;
 	private boolean horsTension = false;
 	private int j = 4 + numero;
 	private int i = 0;
 	private int g = 0;// position dans le tableau des orientations et qui determinera directionPiont
-	private final String [] directionPiont = {"S","O","N","E"};
+	private final String [] directionPiont = {"S","O","N","E"};// (Sud, Ouest,...)
 	
 	
 	public int getChoix() {// retourne le choix de la carte
@@ -39,11 +39,11 @@ public class Player implements Comparable<Player> {
 				System.out.println(i + " : " + main.get(i).toString());
 			}
 			int choix = sc.nextInt();
-			if(choix >= 0 && choix < 10) {
+			if(choix >= 0 && choix < main.size()) {
 				this.choix = choix;
 			}
 			else {
-				System.out.println("Le choix doit etre compris entre 0 et 9 inclus");
+				System.out.println("Le choix doit etre compris entre 0 et " + main.size() + " inclus");
 			}
 		}
 		else
@@ -86,7 +86,10 @@ public class Player implements Comparable<Player> {
 			Gain();
 		}
 		else if(Map.getMap()[getI()][getJ()].equals("R" + String.valueOf(num))) {
-			//le joueur se trouve bien sur 
+			//le joueur se trouve bien sur son emplacement
+		}
+		else if(Map.getMap()[getI()][getJ()].equals("1 ") || Map.getMap()[getI()][getJ()].equals("2 ") || Map.getMap()[getI()][getJ()].equals("3 ")) {
+			gainDrapeau();
 		}
 		else {
 			String st = Map.getMap()[getI()][getJ()];
@@ -209,6 +212,7 @@ public class Player implements Comparable<Player> {
 	
 	private boolean enVie() {
 		if(PV <= 0) {
+			setHorsTension(1);
 			return false;
 		}
 		else
@@ -251,7 +255,7 @@ public class Player implements Comparable<Player> {
 	}
 	
 	public void Degat() {
-		if(PV <= 0)// exception ?
+		if(PV > 0)// exception ?
 			PV = PV - 1;
 		if(!enVie()) {
 			System.out.println(nom + " n'a plus de points de vie");
@@ -271,7 +275,7 @@ public class Player implements Comparable<Player> {
 		int i = 0;
 		while(mainJeu.hasNext()) {
 			i++;
-			cartes += i + " : " + mainJeu.toString() + "\n";
+			cartes += i + " : " + mainJeu.toString();
 		}
 		return cartes;
 	}
@@ -317,7 +321,7 @@ public class Player implements Comparable<Player> {
 	}
 
 	@Override
-	public int compareTo(Player o) {
+	public int compareTo(Player o) {// comparateur de joueur
 		if(o != null || o.getMain(o.getChoix()).getPoints() > getMain(getChoix()).getPoints()) {
 			return -1;
 		}
@@ -326,6 +330,15 @@ public class Player implements Comparable<Player> {
 		}
 		else
 			return 1;
+	}
+	
+	
+	public static String checkPoint() {
+		String affiche = "";
+		for(int i = 0; i < listeJoueur.size(); i++) {
+			affiche += listeJoueur.get(i).toString();
+		}
+		return affiche;
 	}
 	
 }

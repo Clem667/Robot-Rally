@@ -14,7 +14,7 @@ public class SetupClass1 implements Runnable{
 	private PrintWriter printWriter;
 	private Thread t;
 	public static Player player1;
-	public static Player player2 ;
+	public static Player player2;
 	public static Player player3;
 	public static Player player4;
 	public static boolean start = false;
