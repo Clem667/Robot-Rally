@@ -14,24 +14,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Server extends Thread {
-	/*private int nbClients;
+	private int nbClients;
 	private List<Socket> listSocket = new ArrayList<Socket>();
 	private List<Connection> listConnection = new ArrayList<Connection>();
 	
 	@Override
 	public void run() {
 		try {
-			//Crï¿½ation Serveur Socket
-			ServerSocket ss = new ServerSocket(61234);
-			System.out.println("Dï¿½marrage du server");
+/*<<<<<<< HEAD*/
+			//Création Serveur Sockett
+
+			//Création Serveur Socket
+/*>>>>>>> branch 'master' of https://github.com/Clem667/Robot-Rally.git*/
+			ServerSocket ss = new ServerSocket(61734);
+			System.out.println("Demarrage du server");
 			//Boucle d'attente de connexion
 			while(nbClients < 4) {
-				//Crï¿½ation Socket client / ServeurSocket attend connexion
+				//Creation Socket client / ServeurSocket attend connexion
 				Socket s = ss.accept();
 				listSocket.add(s);
 				
 				nbClients++;
-				//Crï¿½ation (connexion) de la conversation prend en parametre un Socket(Client)
+				//Création (connexion) de la conversation prend en parametre un Socket(Client)
 				Connection connection = new Connection(s, nbClients);
 				connection.start();
 				listConnection.add(connection);
@@ -144,12 +148,12 @@ public class Server extends Thread {
 				//adresse ip du client
 				String ip = socket.getRemoteSocketAddress().toString();
 				
-				System.out.println("Connexion du client numï¿½ro " + numeroClient + "IP = " + ip);
+				System.out.println("Connexion du client numero " + numeroClient + "IP = " + ip);
 				
 				
 				while(true) {
 					String requete = br.readLine();
-					System.out.println(ip + " a envoyï¿½ " + requete);
+					System.out.println(ip + " a envoye " + requete);
 					if(requete.equals("[start]")) {
 						setReady(true);
 					}
@@ -212,14 +216,14 @@ public class Server extends Thread {
 			this.ready = ready;
 		}
 		
-	} */
+	} 
 	
-	public static void main (String [] args) throws IOException {
+	/*public static void main1 (String [] args) throws IOException {
 		
 		ServerSocket ss = new ServerSocket(1026); //meme port que client
 		System.out.println("En attente de connection d'un client");
 		Socket s = ss.accept(); 
-		System.out.println("Connection Ã©tablie");
+		System.out.println("Connection etablie");
 		//on recupere la donnÃ©e d'un client, pour cela on definie un flux d'entree
 		DataInputStream in = new DataInputStream(s.getInputStream()); 
 		String nomClient = in.readUTF(); 
@@ -229,6 +233,6 @@ public class Server extends Thread {
 		DataOutputStream out = new DataOutputStream(s.getOutputStream());
 		out.writeUTF(s1);
 		
-	}
+	}*/
 	
 }
