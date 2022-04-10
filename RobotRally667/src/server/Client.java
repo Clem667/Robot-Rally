@@ -11,7 +11,6 @@ public class Client {
 	
 	public static void main (String [] args) throws UnknownHostException, IOException {
 		
-		
 		//création d'un socket
 		Socket client = new Socket ("127.0.0.1", 1026); //(adresse ip, port sup a 1023)
 		//on veut recup le com du client
@@ -29,14 +28,5 @@ public class Client {
 		System.out.println(s1);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
