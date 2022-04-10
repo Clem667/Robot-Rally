@@ -19,8 +19,6 @@ public class MapMedium extends Map {
 			{"# ", "! ", "# ", "# ", "3 ", "# ", "! ", "# ", "# ", "# "}}; 
 	}
 	
-	//rajouter les vies
-	
 	public MapMedium() {
 		SetNiveau(2);
 		tab = mapMedium;

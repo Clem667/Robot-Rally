@@ -18,8 +18,6 @@ public class MapHard extends Map {
 		// map difficile predefinie
 	}
 	
-	//rajouter les vies
-	
 	public MapHard() {
 		SetNiveau(3);
 		tab = mapHard;
