@@ -15,10 +15,6 @@ public class MapHard extends Map {
 			{"# ", "! ", "# ", "! ", "3 ", "# ", "! ", "# ", "# ", "! "}}; 
 		
 	public MapHard() {
-		// map difficile predefinie
-	}
-	
-	public MapHard() {
 		SetNiveau(3);
 		tab = mapHard;
 	}
