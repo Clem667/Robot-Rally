@@ -1,7 +1,7 @@
 package Jeu;
 
 public class Map { // des maps sont predefinie pour faciliter le travail graphique
-	private static final int tailleLigne = 10;//pas besoin de modifier a chaque fois (cote pratique)
+	private static final int tailleLigne = 10;//pas besoin de modifier a chaque fois
 	private static final int tailleColonne = 10;
 	protected static String[][] tab = new String[tailleLigne][tailleColonne];
 	private int niveau;

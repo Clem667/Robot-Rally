@@ -41,8 +41,16 @@ public class Test {
 		Scanner sc = new Scanner(System.in); //demande de choisir un niv de difficultee entre 1 et 8
 	    System.out.print("Veuillez choisir un niveau de difficultee entre 1 et 3 :");
 	    int i = sc.nextInt();
-	    MapEasy easy = new MapEasy();
-	    System.out.println(easy);
+	    Map map1;
+	    if(i == 1) {
+	    	map1 = new MapEasy();
+	    }
+	    else if(i == 2) {
+	    	map1 = new MapMedium();
+	    }
+	    else
+	    	map1 = new MapHard();
+	    System.out.println(map1);
 
 		
 		Player player1 = new Player();
@@ -72,36 +80,14 @@ public class Test {
 					System.out.println(player2.getNom() + " voulez-vous vous mettre hors tension :");
 					int reponse2 = sc.nextInt();
 					player2.setHorsTension(reponse2);
-					System.out.println(easy);
+					System.out.println(map1);
 					
 					player1.setChoix();
 					player2.setChoix();
 					
-					if(player1.isHorsTension() && player2.isHorsTension()) {
-						
-						
-						if(player1.getMain(player1.getChoix()).getPoints() > player2.getMain(player2.getChoix()).getPoints()) {
-							player1.utilisation(player1.getMain(player1.getChoix()));
-							player2.utilisation(player2.getMain(player2.getChoix()));
-
-						}
-						else {
-							player2.utilisation(player2.getMain(player2.getChoix()));
-							player1.utilisation(player1.getMain(player1.getChoix()));
-						}
-						
-						
+					Player.ordrePassage();
+					
 					System.out.println("Fin du tour !");
-					}
-					else if(!player1.isHorsTension() && player2.isHorsTension()) {
-						player1.utilisation(player1.getMain(player1.getChoix()));
-					}
-					
-					
-					else if(player1.isHorsTension() && !player2.isHorsTension()) {
-						player2.utilisation(player2.getMain(player2.getChoix()));
-					}
-
 					tour++;
 				
 				}

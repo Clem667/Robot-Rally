@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class Player {
+public class Player implements Comparable<Player> {
 	public Player() {
-		this.num = numero+1;
+		this.num = numero + 1;
 		numero++;
 		listeJoueur.add(this);
 	}
-	private static ArrayList<Player> listeJoueur = new ArrayList<Player>();
+	
+	
+	private static ArrayList<Player> listeJoueur = new ArrayList<Player>(4);
 	private ArrayList<Carte> main = new ArrayList<Carte>();
 	private int choix;
 	private static int numero = 0;
@@ -19,10 +21,9 @@ public class Player {
 	private int PV = 3;
 	private int drapeau = 0;
 	private boolean horsTension = false; //??
-	private int pointDegat; //??
 	private int j = 4 + numero;
 	private int i = 0;
-	private int g = 0;// position dans la liste des orientations et qui d�terminera directionPiont
+	private int g = 0;// position dans le tableau des orientations et qui determinera directionPiont
 	private final String [] directionPiont = {"S","O","N","E"};
 	
 	
@@ -42,7 +43,7 @@ public class Player {
 				this.choix = choix;
 			}
 			else {
-				System.out.println("Le choix doit �tre compris entre 0 et 9 inclus");
+				System.out.println("Le choix doit etre compris entre 0 et 9 inclus");
 			}
 		}
 		else
@@ -76,7 +77,7 @@ public class Player {
 		}
 		else if(Map.getMap()[getI()][getJ()].equals("! ")) {
 			Map.getMap()[getI()][getJ()] = "R" + String.valueOf(num);
-			System.out.println(nom + " a pris un pi�ge !");
+			System.out.println(nom + " a pris un piege !");
 			Degat();
 		}
 		else if(Map.getMap()[getI()][getJ()].equals("V ")) {
@@ -85,13 +86,12 @@ public class Player {
 			Gain();
 		}
 		else if(Map.getMap()[getI()][getJ()].equals("R" + String.valueOf(num))) {
-			
+			//le joueur se trouve bien sur 
 		}
 		else {
 			String st = Map.getMap()[getI()][getJ()];
 			String st2 = st.substring(st.length());
 			System.out.println("Colision");
-			Degat();
 			listeJoueur.get(Integer.parseInt(st2) - 1).Degat();
 		}
 	}
@@ -166,21 +166,36 @@ public class Player {
 		Carte.defausse.add(c);
 		main.remove(c);
 	}
+	
+	
 	public void utilisationA(Avancer a) {
+		int indice;
+		if(a.getAvance() > 0) {
+			indice = a.getAvance();
+		}
+		else {
+			indice = -a.getAvance();
+		}
 		if(directionPiont[g].equals("S")) {
-			for(int i = 0; i < a.getAvance(); i++) {
+			for(int i = 0; i < indice; i++) {
 				SetI(1);
 			}
 		}
-		else if(directionPiont[g].equals("N"))
-			SetI(-a.getAvance());
+		else if(directionPiont[g].equals("N")) {
+			for(int i = 0; i < indice; i++) {
+				SetI(-1);
+			}
+		}
 		else if(directionPiont[g].equals("E")) {
-			for(int i = 0; i < a.getAvance(); i++) {
+			for(int i = 0; i < indice; i++) {
 				SetJ(1);
 			}
 		}
-		else
-			SetJ(-a.getAvance());
+		else {
+			for(int i = 0; i < indice; i++) {
+				SetJ(-1);
+			}
+		}
 	}
 	
 	public String getDirectionPiont() {
@@ -265,13 +280,6 @@ public class Player {
 		return main.size();
 	}
 	
-	
-	public void ajoutMain(Carte carte) {
-		if(carteMain()>=9 || carte == null)
-			System.err.println("Nombre de cartes maximums atteintes");
-		else
-			main.add(carte);
-	}
 
 
 	public boolean isHorsTension() {
@@ -284,19 +292,16 @@ public class Player {
 		}
 		if(i == 1) {
 			this.horsTension = true;
+			if(listeJoueur.contains(this)) {
+				listeJoueur.remove(this);
+			}
 		}
 		else if(i == 2) {
 			this.horsTension = false;
+			if(!listeJoueur.contains(this)) {
+				listeJoueur.add(this);
+			}
 		}
-	}
-	
-
-	public int getPointDegat() {
-		return pointDegat;
-	}
-
-	public void setPointDegat(int pointDegat) {
-		this.pointDegat = pointDegat;
 	}
 	
 	public String toString() {
@@ -304,5 +309,23 @@ public class Player {
 				+ emplacement();
 	}
 	
+	public static void ordrePassage() {
+		for(int i = 0; i < listeJoueur.size(); i++) {
+			if(listeJoueur.get(i) != null)
+				listeJoueur.get(i).utilisation(listeJoueur.get(i).getMain(listeJoueur.get(i).getChoix()));
+		}
+	}
+
+	@Override
+	public int compareTo(Player o) {
+		if(o != null || o.getMain(o.getChoix()).getPoints() > getMain(getChoix()).getPoints()) {
+			return -1;
+		}
+		else if(o.getMain(o.getChoix()).getPoints() == getMain(getChoix()).getPoints()) {
+			return 0;
+		}
+		else
+			return 1;
+	}
 	
 }
