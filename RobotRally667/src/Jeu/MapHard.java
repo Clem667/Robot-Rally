@@ -13,15 +13,12 @@ public class MapHard extends Map {
 			{"! ", "! ", "# ", "! ", "V ", "# ", "! ", "# ", "V ", "# "},
 			{"# ", "# ", "# ", "# ", "! ", "! ", "# ", "! ", "! ", "# "},
 			{"# ", "! ", "# ", "! ", "3 ", "# ", "! ", "# ", "# ", "! "}}; 
-<<<<<<< HEAD
 		
 	public MapHard() { // map difficile predefinie
-=======
 	
 	//rajouter les vies
 	
 	public MapHard() {
->>>>>>> branch 'master' of https://github.com/Clem667/Robot-Rally.git
 		SetNiveau(3);
 		tab = mapHard;
 	}
