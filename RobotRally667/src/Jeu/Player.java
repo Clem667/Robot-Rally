@@ -20,7 +20,7 @@ public class Player implements Comparable<Player> {
 	private String nom = "R" + num;
 	private int PV = 3;
 	private int drapeau = 0;
-	private boolean horsTension = false; //??
+	private boolean horsTension = false;
 	private int j = 4 + numero;
 	private int i = 0;
 	private int g = 0;// position dans le tableau des orientations et qui determinera directionPiont
