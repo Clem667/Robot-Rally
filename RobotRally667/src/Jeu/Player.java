@@ -88,6 +88,9 @@ public class Player implements Comparable<Player> {
 		else if(Map.getMap()[getI()][getJ()].equals("R" + String.valueOf(num))) {
 			//le joueur se trouve bien sur son emplacement
 		}
+		else if(Map.getMap()[getI()][getJ()].equals("1 ") || Map.getMap()[getI()][getJ()].equals("2 ") || Map.getMap()[getI()][getJ()].equals("3 ")) {
+			gainDrapeau();
+		}
 		else {
 			String st = Map.getMap()[getI()][getJ()];
 			String st2 = st.substring(st.length());
@@ -272,7 +275,7 @@ public class Player implements Comparable<Player> {
 		int i = 0;
 		while(mainJeu.hasNext()) {
 			i++;
-			cartes += i + " : " + mainJeu.toString() + "\n";
+			cartes += i + " : " + mainJeu.toString();
 		}
 		return cartes;
 	}
@@ -327,6 +330,15 @@ public class Player implements Comparable<Player> {
 		}
 		else
 			return 1;
+	}
+	
+	
+	public static String checkPoint() {
+		String affiche = "";
+		for(int i = 0; i < listeJoueur.size(); i++) {
+			affiche += listeJoueur.get(i).toString();
+		}
+		return affiche;
 	}
 	
 }

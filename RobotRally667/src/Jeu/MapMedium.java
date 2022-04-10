@@ -14,10 +14,10 @@ public class MapMedium extends Map {
 			{"# ", "# ", "V ", "# ", "# ", "! ", "V ", "! ", "! ", "# "},
 			{"# ", "! ", "# ", "# ", "3 ", "# ", "! ", "# ", "V ", "# "}}; 
 
-	
 	public MapMedium() {
 		SetNiveau(2);
 		tab = mapMedium;
+		System.out.println("Bienvenue sur la map normal !");
 	}
 
 	public static String[][] getMap() {
