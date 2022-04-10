@@ -14,9 +14,9 @@ public class MapEasy extends Map {
 			{"# ", "# ", "V ", "V ", "# ", "! ", "# ", "V ", "! ", "# "},
 			{"# ", "V ", "# ", "# ", "3 ", "# ", "# ", "# ", "# ", "# "}}; 	
 	
-	public MapEasy() { // map facile
+	public MapEasy() {
 		SetNiveau(1);
-		this.tab = mapEasy;
+		tab = mapEasy;
 	}
 
 	public static String[][] getMap() {

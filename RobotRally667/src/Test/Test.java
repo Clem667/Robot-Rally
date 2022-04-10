@@ -1,11 +1,21 @@
-package Jeu;
+package Test;
 
+import server.SetupClass1;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Jeu.Avancer;
+import Jeu.Carte;
+import Jeu.Direction;
+import Jeu.Map;
+import Jeu.MapEasy;
+import Jeu.MapHard;
+import Jeu.MapMedium;
+import Jeu.Player;
 
 public class Test {
 	
@@ -95,7 +105,6 @@ public class Test {
 				
 				
 			}
-			sc.close();
 		}
 			
 		
