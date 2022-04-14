@@ -41,7 +41,7 @@ public class StartSoloGame extends JFrame implements ActionListener {
 		this.setResizable(false);
 
 		start.setBounds(100, 300, 300, 100);
-		start.setIcon(new ImageIcon(StartSoloGame.class.getResource("/ImageRessources/start.png")));
+		start.setIcon(new ImageIcon(StartSoloGame.class.getResource("/ImageRessources/startbutton.png")));
 		start.addActionListener(this);
 		getContentPane().add(start);
 		
@@ -76,17 +76,17 @@ public class StartSoloGame extends JFrame implements ActionListener {
 	
 	//bouton niveau easy
 	public void selectMapEasy() {
-		control.selectMapView("easy");
+		control.selectMapEasy("easy");
 	}
 	
 	//bouton niveau medium
 	public void selectMapMedium() {
-		control.selectMapView("medium");
+		control.selectMapMedium("medium");
 	}
 	
 	//bouton niveau hard
 	public void selectMapHard() {
-		control.selectMapView("hard");
+		control.selectMapHard("hard");
 	}
 
 	@Override

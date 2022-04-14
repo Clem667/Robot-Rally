@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.*;
 import Jeu.MapEasy;
+import Controller.ControlGame;
 
 public class PlateauEasy extends JPanel {
 	static final int SCREEN_WIDTH = 500;
@@ -41,9 +42,5 @@ public class PlateauEasy extends JPanel {
 		super.paintComponent(g);
 		draw(g);
 	}
-	
-	public void newMap() {
-		MapEasy eMap = new MapEasy();
-	}
-
 }
+

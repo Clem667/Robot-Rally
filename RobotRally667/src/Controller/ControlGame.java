@@ -20,18 +20,27 @@ public class ControlGame {
 	}
 	
 	//choix du niveau de la map
-	public void selectMapView(String level) {
+	public MapEasy selectMapEasy(String level) {
 		if(level == "easy") {
 			MapEasy easyMap = new MapEasy();
+			return easyMap;
 		}
-		
+		return null;
+	}
+	
+	public MapMedium selectMapMedium(String level) {
 		if(level == "medium") {
 			MapMedium mediumMap = new MapMedium();
+			return mediumMap;
 		}
-		
-		if(level == "hard") {
+		return null;
+	}
+	
+	public MapHard selectMapHard(String level) {
+		if(level == "medium") {
 			MapHard hardMap = new MapHard();
-			
+			return hardMap;
 		}
+		return null;
 	}
 }
