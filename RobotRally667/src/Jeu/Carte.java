@@ -45,7 +45,7 @@ public class Carte {
 		}
 		
 	}
-	
+	//
 	public static void distribution(ArrayList<Carte> main) {
 		if(pioche.size() > Player.listeJoueur.size()*9) {
 			if(main.size() < 9) {
