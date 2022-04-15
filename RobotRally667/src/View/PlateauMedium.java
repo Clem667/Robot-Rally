@@ -13,12 +13,19 @@ public class PlateauMedium extends JPanel {
 	static final int UNIT_SIZE = 50;
 	boolean running = false;
 	
-	
+	//pour l'image de la map
+	JLabel map = new JLabel();
 	public PlateauMedium() {
 		
 		this.setBounds(0, 0, 500, 500);
 		this.setBackground(Color.black);
-		setLayout(null);
+		
+		map.setIcon(new ImageIcon(PlateauMedium.class.getResource("/ImageRessources/map medium.png")));
+		map.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+		
+		this.add(map);
+		
+		startGame();
 	}
 	
 	public void startGame() {

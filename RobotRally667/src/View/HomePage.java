@@ -13,24 +13,17 @@ public class HomePage extends JFrame implements ActionListener {
 	
 	//creation de bouton pour lancer la partie
 	private JButton solo = new JButton("Solo player");
-	private JButton multi = new JButton("Multiplayers");
 
 	public HomePage(ControlGame control){
 		this.control = control;
 
 		//configuration du bouton solo player
-		solo.setBounds(200,280,300,100);
+		solo.setBounds(330,268,283,90);
 		solo.addActionListener(this);
+		getContentPane().setLayout(null);
 		solo.setFocusable(false);
-		solo.setIcon(new ImageIcon(HomePage.class.getResource("/ImageRessources/singlee.png")));
-		this.add(solo);
-
-		//configuration du bouton multiplayer
-		multi.setBounds(515,280,300,100);
-		multi.addActionListener(this);
-		multi.setFocusable(false);
-		multi.setIcon(new ImageIcon(HomePage.class.getResource("/ImageRessources/multiplayer.png")));
-		this.add(multi);
+		solo.setIcon(new ImageIcon(HomePage.class.getResource("/ImageRessources/playbutton.png")));
+		getContentPane().add(solo);
 
 		//affichage du fond d'ecran
 		setIconImage(Toolkit.getDefaultToolkit().getImage(HomePage.class.getResource("/ImageRessources/icon image.png")));
@@ -44,9 +37,10 @@ public class HomePage extends JFrame implements ActionListener {
 
 		//mise en place du fond a partir d'une image
 		JLabel fond = new JLabel();
-		fond.setIcon(new ImageIcon(HomePage.class.getResource("/ImageRessources/bg.png")));
+		fond.setBounds(0, 0, 994, 571);
+		fond.setIcon(new ImageIcon(HomePage.class.getResource("/ImageRessources/newbg.png")));
 		fond.setOpaque(true);
-		this.add(fond);
+		getContentPane().add(fond);
 
 
 	}
@@ -56,9 +50,6 @@ public class HomePage extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if(e.getSource()==solo) {
 			StartSoloGame soloPlay = new StartSoloGame(control);
-		}
-		if(e.getSource()==multi) {
-			StartSoloGame multiPlay = new StartSoloGame(control);
 		}
 		
 	}

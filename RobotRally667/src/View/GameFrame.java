@@ -35,11 +35,11 @@ public class GameFrame extends JFrame {
 		//plateau.setLayout(null);
 		//plateau.setBackground(Color.black);
 		
-		//boucle if, en fonction du niveau choisi
 		this.add(easyPlateau);
 
 		this.setVisible(true);
 
 	}
+
 }
 
