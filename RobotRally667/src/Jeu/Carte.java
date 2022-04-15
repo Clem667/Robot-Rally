@@ -6,7 +6,7 @@ import java.util.List;
 public class Carte {
 	private int points;
 	private static ArrayList<Carte> pioche = new ArrayList<Carte>();
-	public static List<Carte> defausse = new ArrayList<Carte>();
+	public static ArrayList<Carte> defausse = new ArrayList<Carte>();
 
 	public Carte(int points) {
 		if(points < 0) {
@@ -47,7 +47,7 @@ public class Carte {
 	}
 	
 	public static void distribution(ArrayList<Carte> main) {
-		if(pioche.size() > 18) {
+		if(pioche.size() > Player.listeJoueur.size()*9) {
 			if(main.size() < 9) {
 			int i = ((int) (Math.random())*(pioche.size()));
 			main.add(pioche.get(i));

@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class Player implements Comparable<Player> {
+	
+	
 	public Player() {
 		this.num = numero + 1;
 		numero++;
@@ -13,7 +15,7 @@ public class Player implements Comparable<Player> {
 	
 	
 	public static ArrayList<Player> listeJoueur = new ArrayList<Player>(4);// les joueurs seront stocké dans cette liste s'ils ne sont pas hors tension
-	private ArrayList<Carte> main = new ArrayList<Carte>();// seront stockés les 9 cartes du joueur.
+	private ArrayList<Carte> main = new ArrayList<Carte>(9);// seront stockés les 9 cartes du joueur.
 	private int choix;// correspond au choix de la carte
 	private static int numero = 0;
 	private int num = numero + 1;// correspond au numéro d'un joueur
@@ -175,30 +177,43 @@ public class Player implements Comparable<Player> {
 		int indice;
 		if(a.getAvance() > 0) {
 			indice = a.getAvance();
+			if(directionPiont[g].equals("S")) {
+				for(int i = 0; i < indice; i++) {
+					SetI(1);
+				}
+			}
+			else if(directionPiont[g].equals("N")) {
+				for(int i = 0; i < indice; i++) {
+					SetI(-1);
+				}
+			}
+			else if(directionPiont[g].equals("E")) {
+				for(int i = 0; i < indice; i++) {
+					SetJ(1);
+				}
+			}
+			else {
+				for(int i = 0; i < indice; i++) {
+					SetJ(-1);
+				}
+			}
 		}
 		else {
-			indice = -a.getAvance();
-		}
-		if(directionPiont[g].equals("S")) {
-			for(int i = 0; i < indice; i++) {
-				SetI(1);
-			}
-		}
-		else if(directionPiont[g].equals("N")) {
-			for(int i = 0; i < indice; i++) {
+			indice = a.getAvance();
+			if(directionPiont[g].equals("S")) {
 				SetI(-1);
 			}
-		}
-		else if(directionPiont[g].equals("E")) {
-			for(int i = 0; i < indice; i++) {
+			else if(directionPiont[g].equals("N")) {
+				SetI(1);
+			}
+			else if(directionPiont[g].equals("E")) {
+				SetJ(-1);
+			}
+			else {
 				SetJ(1);
 			}
 		}
-		else {
-			for(int i = 0; i < indice; i++) {
-				SetJ(-1);
-			}
-		}
+		
 	}
 	
 	public String getDirectionPiont() {
@@ -336,7 +351,7 @@ public class Player implements Comparable<Player> {
 	public static String checkPoint() {
 		String affiche = "";
 		for(int i = 0; i < listeJoueur.size(); i++) {
-			affiche += listeJoueur.get(i).toString();
+			affiche += listeJoueur.get(i).toString() + "\n";
 		}
 		return affiche;
 	}
